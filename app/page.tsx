@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { FiArrowRight, FiArrowUpRight, FiBookOpen, FiBriefcase, FiDownload, FiMail, FiPlay, FiSearch } from "react-icons/fi";
+import { audienceSnapshot, mediaKitUrl } from "./audience";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 import { notes } from "./senpai-notes/data";
@@ -102,6 +103,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="audience-section container reveal-section" aria-labelledby="audience-heading">
+        <div className="audience-intro">
+          <p className="eyebrow">Audience snapshot</p>
+          <h2 id="audience-heading">Thoughtful anime creator with proof.</h2>
+          <p>{audienceSnapshot.headline}</p>
+          <div className="audience-meta">
+            <span>{audienceSnapshot.verifiedLabel}</span>
+            <span>{audienceSnapshot.lastUpdated}</span>
+          </div>
+          <a className="editorial-link" href={mediaKitUrl} target="_blank" rel="noopener noreferrer">View media kit <FiArrowUpRight aria-hidden="true" /></a>
+        </div>
+        <div className="audience-grid" aria-label="Verified SenpaiS1lva audience numbers">
+          {audienceSnapshot.metrics.map((metric) => (
+            <article className="audience-card" key={metric.label}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="about" className="start-section container reveal-section">
         <div className="start-visual">
           <Image className="about-photo" src="/about-silva.webp" alt="SenpaiS1lva smiling at a restaurant" fill sizes="(max-width: 800px) 100vw, 50vw" unoptimized />
@@ -152,7 +174,7 @@ export default function Home() {
             <ul>{partnerships.map((item) => <li key={item}>{item}</li>)}</ul>
             <div className="partner-actions">
               <a className="primary-button" href={`mailto:${partnershipEmail}?subject=Partnership%20Inquiry%20for%20SenpaiS1lva`}><FiMail aria-hidden="true" /> Partnership inquiry</a>
-              <a className="media-kit-link" href={`mailto:${partnershipEmail}?subject=SenpaiS1lva%20Media%20Kit%20Request`}><FiDownload aria-hidden="true" /> Request media kit</a>
+              <a className="media-kit-link" href={mediaKitUrl} target="_blank" rel="noopener noreferrer"><FiDownload aria-hidden="true" /> View media kit</a>
             </div>
             <a className="partner-email" href={`mailto:${partnershipEmail}`}>{partnershipEmail}</a>
           </div>
