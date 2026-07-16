@@ -5,6 +5,7 @@ import { FiArrowRight, FiArrowUpRight, FiBookOpen, FiBriefcase, FiDownload, FiMa
 import { audienceSnapshot, mediaKitUrl } from "./audience";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
+import { currentlyCoveringLine, donghuaCoverage, donghuaCoverageLastUpdated } from "./donghua";
 import { notes } from "./senpai-notes/data";
 
 const partnershipEmail = "animejay89@gmail.com";
@@ -26,10 +27,10 @@ const featuredSlots = [
 const partnerships = ["Sponsored short-form", "Streaming campaigns", "Product integrations", "Events & conventions", "Creator collaborations", "Brand ambassadorships"];
 
 const commandLinks = [
-  { label: "Latest take", meta: "Watch", href: "/watch" },
-  { label: "Start watching", meta: "Discover", href: "/recommendations" },
-  { label: "Read Senpai Notes", meta: "Think", href: "/senpai-notes" },
-  { label: "Work with me", meta: "Partner", href: "/work-with-me" },
+  { label: "Watch", meta: "Video hub", href: "/watch" },
+  { label: "Recommendations", meta: "Taste map", href: "/recommendations" },
+  { label: "Senpai Notes", meta: "Deep talk", href: "/senpai-notes" },
+  { label: "Donghua Coverage", meta: "Now airing", href: "#donghua-coverage" },
 ];
 
 const fanPaths = [
@@ -70,6 +71,10 @@ export default function Home() {
             <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Watch on YouTube <FiPlay aria-hidden="true" /></a>
             <a className="text-link" href="#about">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
+          <a className="current-covering-strip" href="#donghua-coverage" aria-label="Jump to Donghua I’m Covering">
+            <span>Currently covering</span>
+            <strong>{currentlyCoveringLine}</strong>
+          </a>
         </div>
         <div className="identity-stage">
           <div className="logo-halo" aria-hidden="true" />
@@ -119,6 +124,30 @@ export default function Home() {
             <article className="audience-card" key={metric.label}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="donghua-coverage" className="donghua-section container reveal-section" aria-labelledby="donghua-heading">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Currently covering · Donghua</p>
+            <h2 id="donghua-heading">Donghua I’m Covering</h2>
+          </div>
+          <p className="section-note">Not just recommendations. These are the Chinese animated series I’m actively watching, reacting to, and helping people discover.<br /><span>{donghuaCoverageLastUpdated}</span></p>
+        </div>
+        <div className="donghua-grid">
+          {donghuaCoverage.map((show, index) => (
+            <article className="donghua-card" key={show.title}>
+              <div className="donghua-card-top">
+                <span>0{index + 1}</span>
+                <small>{show.alsoKnownAs.join(" · ")}</small>
+              </div>
+              <h3>{show.title}</h3>
+              <p>{show.description}</p>
+              <div className="donghua-tags">{show.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              <Link className="donghua-card-cta" href="/watch#donghua-coverage">{show.cta} <FiArrowUpRight aria-hidden="true" /></Link>
             </article>
           ))}
         </div>
