@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { donghuaCoverage } from "../donghua";
 
 const picks = [
   { title: "Code Geass", type: "Anime", mood: "Strategy · Rebellion", tags: ["Political", "Gateway"], reason: "For the viewer who wants impossible decisions, theatrical genius, and consequences that actually land." },
@@ -12,9 +13,16 @@ const picks = [
   { title: "Dorohedoro", type: "Anime", mood: "Weird · Violent", tags: ["Hidden gem"], reason: "A filthy, funny, strangely warm world where monsters feel human and humans rarely behave like it." },
   { title: "Link Click", type: "Donghua", mood: "Thriller · Emotion", tags: ["Gateway", "Mystery"], reason: "Time-bending suspense built around empathy, grief, and the danger of believing one small change stays small." },
   { title: "Lord of Mysteries", type: "Donghua", mood: "Occult · Mystery", tags: ["Worldbuilding", "Long watch"], reason: "Dense supernatural worldbuilding for viewers who enjoy piecing together systems, factions, rituals, and hidden history." },
+  ...donghuaCoverage.map((show) => ({
+    title: show.title,
+    type: "Donghua",
+    mood: show.tags.slice(0, 2).join(" · "),
+    tags: ["Covered by SenpaiS1lva", ...show.tags],
+    reason: show.description,
+  })),
 ];
 
-const filters = ["All", "Anime", "Donghua", "Hidden gem", "Gateway", "Short watch"];
+const filters = ["All", "Anime", "Donghua", "Covered by SenpaiS1lva", "Hidden gem", "Gateway", "Short watch"];
 
 export default function RecommendationExplorer() {
   const [filter, setFilter] = useState("All");
