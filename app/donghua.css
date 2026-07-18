@@ -18,6 +18,11 @@
 
 .donghua-section { padding: 28px 0 76px; }
 .section-note span, .page-section-heading span { display: inline-block; margin-top: 9px; color: var(--signal); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
+.activity-signal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 27px; border: 1px solid rgba(238,233,226,.14); background: rgba(238,233,226,.14); }
+.activity-signal-grid article { min-height: 128px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; background: rgba(9,9,11,.92); }
+.activity-signal-grid span { color: var(--signal); font-size: 8px; letter-spacing: .17em; text-transform: uppercase; }
+.activity-signal-grid strong { color: #c8c0c2; font-family: "Iowan Old Style", Georgia, serif; font-size: 13px; font-weight: 400; line-height: 1.5; }
+.activity-signal-grid--watch { margin-top: 30px; }
 .donghua-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
 .donghua-card, .watch-donghua-card { min-height: 430px; display: flex; flex-direction: column; position: relative; overflow: hidden; padding: 25px; border: 1px solid var(--line); background: linear-gradient(145deg, #0e0c0f, #070708 70%); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
 .donghua-card::before, .watch-donghua-card::before { content: ""; position: absolute; inset: 0; opacity: .18; background: radial-gradient(circle at 20% 15%, rgba(237,0,102,.3), transparent 32%), repeating-linear-gradient(90deg, transparent 0 74px, rgba(238,233,226,.04) 75px); pointer-events: none; }
@@ -61,6 +66,8 @@
   .audience-card:nth-child(2n) { border-right: 0; }
   .audience-card:last-child { grid-column: 1 / -1; border-bottom: 0; }
   .donghua-grid, .watch-donghua-grid { grid-template-columns: 1fr; }
+  .activity-signal-grid { grid-template-columns: 1fr; }
+  .activity-signal-grid article { min-height: auto; gap: 24px; }
   .donghua-card, .watch-donghua-card { min-height: 330px; }
   .donghua-card-top { flex-direction: column; min-height: 62px; }
   .donghua-card-top small, .watch-donghua-card small { max-width: 100%; text-align: left; }
