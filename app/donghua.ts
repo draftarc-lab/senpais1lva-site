@@ -1,4 +1,12 @@
+export const coverageSeason = "Summer 2026 anime & donghua";
 export const donghuaCoverageLastUpdated = "Last updated July 2026";
+
+export const creatorActivitySignals = [
+  { label: "Season focus", value: "Summer 2026 anime & donghua" },
+  { label: "Coverage modes", value: "Recommendations, reactions, culture reads, and deeper episode talk" },
+  { label: "Discovery lane", value: "Helping anime fans find story-forward donghua without the search headache" },
+  { label: "Best next step", value: "Start with Watch, then use Recommendations when you need a taste-match" },
+];
 
 export const donghuaCoverage = [
   {
