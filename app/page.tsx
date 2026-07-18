@@ -5,7 +5,7 @@ import { FiArrowRight, FiArrowUpRight, FiBookOpen, FiBriefcase, FiDownload, FiMa
 import { audienceSnapshot, mediaKitUrl } from "./audience";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
-import { currentlyCoveringLine, donghuaCoverage, donghuaCoverageLastUpdated } from "./donghua";
+import { coverageSeason, creatorActivitySignals, currentlyCoveringLine, donghuaCoverage, donghuaCoverageLastUpdated } from "./donghua";
 import { notes } from "./senpai-notes/data";
 
 const partnershipEmail = "animejay89@gmail.com";
@@ -30,7 +30,7 @@ const commandLinks = [
   { label: "Watch", meta: "Video hub", href: "/watch" },
   { label: "Recommendations", meta: "Taste map", href: "/recommendations" },
   { label: "Senpai Notes", meta: "Deep talk", href: "/senpai-notes" },
-  { label: "Donghua Coverage", meta: "Now airing", href: "#donghua-coverage" },
+  { label: "Summer Coverage", meta: "Now airing", href: "#summer-coverage" },
 ];
 
 const fanPaths = [
@@ -71,9 +71,9 @@ export default function Home() {
             <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Watch on YouTube <FiPlay aria-hidden="true" /></a>
             <a className="text-link" href="#about">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
-          <a className="current-covering-strip" href="#donghua-coverage" aria-label="Jump to Donghua I’m Covering">
+          <a className="current-covering-strip" href="#summer-coverage" aria-label="Jump to Summer 2026 anime and donghua coverage">
             <span>Currently covering</span>
-            <strong>{currentlyCoveringLine}</strong>
+            <strong>{coverageSeason} · {currentlyCoveringLine}</strong>
           </a>
         </div>
         <div className="identity-stage">
@@ -129,13 +129,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="donghua-coverage" className="donghua-section container reveal-section" aria-labelledby="donghua-heading">
+      <section id="summer-coverage" className="donghua-section container reveal-section" aria-labelledby="summer-coverage-heading">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Currently covering · Donghua</p>
-            <h2 id="donghua-heading">Donghua I’m Covering</h2>
+            <p className="eyebrow">Currently covering · Summer 2026</p>
+            <h2 id="summer-coverage-heading">Summer 2026 Anime & Donghua</h2>
           </div>
-          <p className="section-note">Not just recommendations. These are the Chinese animated series I’m actively watching, reacting to, and helping people discover.<br /><span>{donghuaCoverageLastUpdated}</span></p>
+          <p className="section-note">Not just recommendations. This is the active watch board for the anime and Chinese animated series I’m watching, reacting to, and helping people discover.<br /><span>{donghuaCoverageLastUpdated}</span></p>
+        </div>
+        <div className="activity-signal-grid" aria-label="Current creator activity signals">
+          {creatorActivitySignals.map((item) => (
+            <article key={item.label}>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </article>
+          ))}
         </div>
         <div className="donghua-grid">
           {donghuaCoverage.map((show, index) => (
@@ -147,7 +155,7 @@ export default function Home() {
               <h3>{show.title}</h3>
               <p>{show.description}</p>
               <div className="donghua-tags">{show.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              <Link className="donghua-card-cta" href="/watch#donghua-coverage">{show.cta} <FiArrowUpRight aria-hidden="true" /></Link>
+              <Link className="donghua-card-cta" href="/watch#summer-coverage">{show.cta} <FiArrowUpRight aria-hidden="true" /></Link>
             </article>
           ))}
         </div>
