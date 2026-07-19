@@ -35,7 +35,7 @@ export default function SiteHeader() {
         <Link className={pathname === "/watch" ? "active" : ""} href="/watch"><FiPlay aria-hidden="true" /><span>Watch</span></Link>
         <Link className={pathname.startsWith("/senpai-notes") ? "active" : ""} href="/senpai-notes"><FiBookOpen aria-hidden="true" /><span>Notes</span></Link>
         <Link className={pathname === "/recommendations" ? "active" : ""} href="/recommendations"><FiSearch aria-hidden="true" /><span>Recs</span></Link>
-        <Link className={pathname === "/work-with-me" ? "active" : ""} href="/work-with-me"><FiBriefcase aria-hidden="true" /><span>Work</span></Link>
+        <Link className={pathname === "/work-with-me" ? "active" : ""} href="/work-with-me"><FiBriefcase aria-hidden="true" /><span>Collab</span></Link>
       </nav>
     </>
   );
