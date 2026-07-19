@@ -72,8 +72,8 @@ export default function Home() {
             <a className="text-link" href="#about">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
           <a className="current-covering-strip" href="#summer-coverage" aria-label="Jump to Summer 2026 anime and donghua coverage">
-            <span>Currently covering</span>
-            <strong>{coverageSeason} · {currentlyCoveringLine}</strong>
+            <span>Summer coverage</span>
+            <strong>{coverageSeason}: {currentlyCoveringLine}</strong>
           </a>
         </div>
         <div className="identity-stage">
@@ -93,6 +93,38 @@ export default function Home() {
         <div className="container topic-inner">
           <span className="topic-label">What I cover</span>
           <div className="topic-list">{topics.map((topic, index) => <span key={topic}>{topic}{index < topics.length - 1 && <i aria-hidden="true">✦</i>}</span>)}</div>
+        </div>
+      </section>
+
+      <section id="summer-coverage" className="donghua-section container reveal-section" aria-labelledby="summer-coverage-heading">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Currently covering · Summer 2026</p>
+            <h2 id="summer-coverage-heading">Summer 2026 Anime & Donghua</h2>
+          </div>
+          <p className="section-note">Not just recommendations. This is the active watch board for the anime and Chinese animated series I’m watching, reacting to, and helping people discover.<br /><span>{donghuaCoverageLastUpdated}</span></p>
+        </div>
+        <div className="activity-signal-grid" aria-label="Current creator activity signals">
+          {creatorActivitySignals.map((item) => (
+            <article key={item.label}>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+            </article>
+          ))}
+        </div>
+        <div className="donghua-grid">
+          {donghuaCoverage.map((show, index) => (
+            <article className="donghua-card" key={show.title}>
+              <div className="donghua-card-top">
+                <span>0{index + 1}</span>
+                <small>{show.alsoKnownAs.join(" · ")}</small>
+              </div>
+              <h3>{show.title}</h3>
+              <p>{show.description}</p>
+              <div className="donghua-tags">{show.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              <Link className="donghua-card-cta" href="/watch#summer-coverage">{show.cta} <FiArrowUpRight aria-hidden="true" /></Link>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -124,38 +156,6 @@ export default function Home() {
             <article className="audience-card" key={metric.label}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="summer-coverage" className="donghua-section container reveal-section" aria-labelledby="summer-coverage-heading">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Currently covering · Summer 2026</p>
-            <h2 id="summer-coverage-heading">Summer 2026 Anime & Donghua</h2>
-          </div>
-          <p className="section-note">Not just recommendations. This is the active watch board for the anime and Chinese animated series I’m watching, reacting to, and helping people discover.<br /><span>{donghuaCoverageLastUpdated}</span></p>
-        </div>
-        <div className="activity-signal-grid" aria-label="Current creator activity signals">
-          {creatorActivitySignals.map((item) => (
-            <article key={item.label}>
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-            </article>
-          ))}
-        </div>
-        <div className="donghua-grid">
-          {donghuaCoverage.map((show, index) => (
-            <article className="donghua-card" key={show.title}>
-              <div className="donghua-card-top">
-                <span>0{index + 1}</span>
-                <small>{show.alsoKnownAs.join(" · ")}</small>
-              </div>
-              <h3>{show.title}</h3>
-              <p>{show.description}</p>
-              <div className="donghua-tags">{show.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              <Link className="donghua-card-cta" href="/watch#summer-coverage">{show.cta} <FiArrowUpRight aria-hidden="true" /></Link>
             </article>
           ))}
         </div>
