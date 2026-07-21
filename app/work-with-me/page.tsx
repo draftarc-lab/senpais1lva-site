@@ -4,8 +4,13 @@ import { audienceSnapshot, mediaKitUrl, partnershipAudienceProof } from "../audi
 import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = { title: "Work With Me", description: "Partner with SenpaiS1lva on anime, entertainment, gaming, and culture-forward campaigns." };
+export const metadata: Metadata = pageMetadata({
+  title: "Work With Me",
+  description: "Partner with SenpaiS1lva on anime, donghua, entertainment, gaming, technology, lifestyle, and culture-forward creator campaigns.",
+  path: "/work-with-me",
+});
 const partnershipEmail = "animejay89@gmail.com";
 const services = ["Sponsored short-form videos", "Streaming and entertainment campaigns", "Product integrations", "Event and convention coverage", "Creator collaborations", "Long-term ambassadorships"];
 

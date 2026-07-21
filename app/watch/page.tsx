@@ -8,8 +8,13 @@ import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
 import { coverageLastUpdated, coverageSeason, creatorActivitySignals, featuredVideos, summerCoverage } from "../coverage";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = { title: "Watch", description: "Watch selected anime and donghua commentary from SenpaiS1lva." };
+export const metadata: Metadata = pageMetadata({
+  title: "Watch",
+  description: "Watch selected anime and donghua reactions, recommendations, deep dives, and current coverage from SenpaiS1lva.",
+  path: "/watch",
+});
 
 export default function WatchPage() {
   return <main id="main-content" className="inner-page watch-page"><SiteHeader /><PageHero eyebrow="Senpai Sayz" title={<>Watch the <em>conversation.</em></>} intro="Reactions, recommendations, deep dives, and the anime moments that deserve more than a passing take." />

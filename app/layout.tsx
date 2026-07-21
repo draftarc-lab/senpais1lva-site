@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import JsonLd from "./components/JsonLd";
 import "./globals.css";
 import "./donghua.css";
+import { organizationJsonLd, personJsonLd, websiteJsonLd } from "./structured-data";
+import { siteUrl } from "./seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://senpais1lva.com"),
+  metadataBase: new URL(siteUrl),
   title: { default: "SenpaiS1lva | Anime, culture & conversation", template: "%s | SenpaiS1lva" },
-  description: "The official creator headquarters of SenpaiS1lva.",
+  description: "The official creator headquarters for anime, donghua, recommendations, reactions, culture, psychology, philosophy, and meaningful conversation.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     siteName: "SenpaiS1lva",
@@ -15,9 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "SenpaiS1lva", description: "Anime has more to say.", images: ["/og-image.jpg"] },
   icons: { icon: "/favicon.ico", shortcut: "/favicon.ico", apple: "/nav-logo.webp" },
-  other: { "codex-preview": "development" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en"><body><JsonLd data={websiteJsonLd} /><JsonLd data={organizationJsonLd} /><JsonLd data={personJsonLd} />{children}</body></html>;
 }

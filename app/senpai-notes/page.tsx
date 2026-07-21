@@ -4,9 +4,14 @@ import { FiArrowUpRight } from "react-icons/fi";
 import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { pageMetadata } from "../seo";
 import { notes } from "./data";
 
-export const metadata: Metadata = { title: "Senpai Notes", description: "Anime analysis through psychology, philosophy, sociology, history, and culture." };
+export const metadata: Metadata = pageMetadata({
+  title: "Senpai Notes",
+  description: "Concise anime and donghua commentary from SenpaiS1lva through psychology, philosophy, sociology, history, and culture.",
+  path: "/senpai-notes",
+});
 
 export default function SenpaiNotesPage() {
   return <main id="main-content" className="inner-page notes-page"><SiteHeader /><PageHero eyebrow="From the Anime Lab" title={<>The ideas beneath the <em>animation.</em></>} intro="Psychology, philosophy, sociology, history, politics, economics, religion, and the stories that make those subjects feel alive." />

@@ -5,8 +5,14 @@ import { FiArrowUpRight } from "react-icons/fi";
 import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = { title: "About", description: "Meet Jonathan, the creator behind SenpaiS1lva." };
+export const metadata: Metadata = pageMetadata({
+  title: "About",
+  description: "Meet Jonathan, the Orlando creator behind SenpaiS1lva and the anime, donghua, culture, psychology, and philosophy conversations behind the brand.",
+  path: "/about",
+  image: "/about-silva.webp",
+});
 
 export default function AboutPage() {
   return <main id="main-content" className="inner-page about-page"><SiteHeader /><PageHero eyebrow="Behind the name" title={<>Meet the creator behind <em>SenpaiS1lva.</em></>} intro="A longtime anime fan, an isekai guy, and the friend who never stops at ‘that episode was fire.’" />

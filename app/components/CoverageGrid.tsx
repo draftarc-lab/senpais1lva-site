@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { useMemo, useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { CoverageContentType, CoverageEntry } from "../coverage";
 
@@ -21,30 +18,9 @@ function hasVerifiedProgress(entry: CoverageEntry): entry is CoverageEntry & { c
 }
 
 export default function CoverageGrid({ entries, variant = "home" }: CoverageGridProps) {
-  const contentTypes = useMemo(() => Array.from(new Set(entries.map((entry) => entry.contentType))), [entries]);
-  const shouldShowFilters = entries.length >= 5 && contentTypes.length > 1;
-  const [filter, setFilter] = useState<"all" | CoverageContentType>("all");
-  const visibleEntries = filter === "all" ? entries : entries.filter((entry) => entry.contentType === filter);
-
   return (
-    <>
-      {shouldShowFilters && (
-        <div className="coverage-filters" aria-label="Filter Summer Coverage">
-          {(["all", ...contentTypes] as Array<"all" | CoverageContentType>).map((item) => (
-            <button
-              aria-pressed={filter === item}
-              className={filter === item ? "active" : ""}
-              key={item}
-              onClick={() => setFilter(item)}
-              type="button"
-            >
-              {item === "all" ? "All" : contentTypeLabels[item]}
-            </button>
-          ))}
-        </div>
-      )}
       <div className={variant === "watch" ? "watch-donghua-grid" : "donghua-grid"}>
-        {visibleEntries.map((entry, index) => (
+        {entries.map((entry, index) => (
           <article className={variant === "watch" ? "watch-donghua-card" : "donghua-card"} id={entry.slug} key={entry.slug}>
             <div className="donghua-card-top">
               <span>0{index + 1}</span>
@@ -86,6 +62,5 @@ export default function CoverageGrid({ entries, variant = "home" }: CoverageGrid
           </article>
         ))}
       </div>
-    </>
   );
 }

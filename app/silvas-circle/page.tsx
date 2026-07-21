@@ -4,8 +4,13 @@ import { FiBookOpen, FiMessageCircle, FiRadio } from "react-icons/fi";
 import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = { title: "Silva’s Circle", description: "A closer community around anime, donghua, and the work behind SenpaiS1lva." };
+export const metadata: Metadata = pageMetadata({
+  title: "Silva’s Circle",
+  description: "A closer community around anime, donghua, recommendations, conversation, and the work behind SenpaiS1lva.",
+  path: "/silvas-circle",
+});
 
 export default function SilvasCirclePage() {
   return <main id="main-content" className="inner-page circle-page"><SiteHeader /><PageHero eyebrow="The closer circle" title={<>More than a feed. <em>A community.</em></>} intro="Silva’s Circle is the home for the people who want to go deeper, stay closer to the creative process, and keep the conversation moving after the post ends." action={<a className="primary-button" href="https://www.instagram.com/senpais1lva" target="_blank" rel="noopener noreferrer"><FaInstagram /> Follow for updates</a>} />

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { FiArrowRight, FiArrowUpRight, FiBookOpen, FiBriefcase, FiDownload, FiMail, FiPlay, FiSearch } from "react-icons/fi";
 import { audienceSnapshot, mediaKitUrl } from "./audience";
@@ -9,7 +10,14 @@ import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 import { coverageLastUpdated, coverageSeason, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
 import { creatorProfile, featuredCreatorStatusItems } from "./creator";
+import { pageMetadata } from "./seo";
 import { featuredNotes } from "./senpai-notes/data";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Anime has more to say",
+  description: "SenpaiS1lva is a premium creator hub for anime, donghua, recommendations, reactions, culture, psychology, philosophy, and meaningful conversation.",
+  path: "/",
+});
 
 const partnershipEmail = "animejay89@gmail.com";
 

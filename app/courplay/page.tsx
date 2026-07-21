@@ -4,8 +4,14 @@ import { FiArrowUpRight, FiBarChart2, FiClock, FiUsers } from "react-icons/fi";
 import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = { title: "Courplay", description: "Draft anime, predict breakouts, and win the week with Courplay." };
+export const metadata: Metadata = pageMetadata({
+  title: "Courplay",
+  description: "Courplay is a SenpaiS1lva project that brings fantasy sports energy to currently airing anime and donghua.",
+  path: "/courplay",
+  image: "/courplay-home.webp",
+});
 
 export default function CourplayPage() {
   return <main id="main-content" className="inner-page courplay-page"><SiteHeader /><PageHero eyebrow="A SenpaiS1lva project" title={<>Fantasy sports energy. <em>Anime rules.</em></>} intro="Courplay turns the currently airing season into a weekly fantasy draft. Build a lineup, predict the breakout shows, and see who really understands the slate." action={<a className="primary-button" href="https://courplay.com" target="_blank" rel="noopener noreferrer">Visit Courplay <FiArrowUpRight /></a>} />
