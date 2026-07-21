@@ -24,6 +24,9 @@
 .activity-signal-grid span { color: var(--signal); font-size: 8px; letter-spacing: .17em; text-transform: uppercase; }
 .activity-signal-grid strong { color: #c8c0c2; font-family: "Iowan Old Style", Georgia, serif; font-size: 13px; font-weight: 400; line-height: 1.5; }
 .activity-signal-grid--watch { margin-top: 30px; }
+.coverage-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.coverage-filters button { min-height: 38px; padding: 0 13px; border: 1px solid var(--line); background: rgba(8,8,10,.8); color: #999194; font: 10px var(--utility); letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
+.coverage-filters button:hover, .coverage-filters button:focus-visible, .coverage-filters button.active { border-color: var(--signal); background: rgba(237,0,102,.1); color: var(--paper); }
 .donghua-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
 .donghua-card, .watch-donghua-card { min-height: 430px; display: flex; flex-direction: column; position: relative; overflow: hidden; padding: 25px; border: 1px solid var(--line); background: linear-gradient(145deg, #0e0c0f, #070708 70%); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
 .donghua-card::before, .watch-donghua-card::before { content: ""; position: absolute; inset: 0; opacity: .18; background: radial-gradient(circle at 20% 15%, rgba(237,0,102,.3), transparent 32%), repeating-linear-gradient(90deg, transparent 0 74px, rgba(238,233,226,.04) 75px); pointer-events: none; }
@@ -33,12 +36,25 @@
 .donghua-card-top { display: flex; justify-content: space-between; gap: 18px; min-height: 76px; }
 .donghua-card-top > span, .watch-donghua-card > span { color: var(--signal); font-size: 10px; letter-spacing: .18em; }
 .donghua-card-top small, .watch-donghua-card small { max-width: 250px; color: #837b7f; font-size: 8px; letter-spacing: .1em; line-height: 1.55; text-align: right; text-transform: uppercase; }
-.donghua-card h3, .watch-donghua-card h3 { margin: auto 0 14px; font-family: var(--display); font-size: clamp(31px, 3vw, 43px); font-weight: 400; line-height: .96; letter-spacing: -.04em; }
+.coverage-type-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.coverage-type-row span { padding: 6px 8px; border: 1px solid rgba(238,233,226,.12); color: #8f878a; font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
+.coverage-type-row span:first-child { border-color: rgba(237,0,102,.45); color: #d9d1d3; }
+.donghua-card h3, .watch-donghua-card h3 { margin: 36px 0 14px; font-family: var(--display); font-size: clamp(31px, 3vw, 43px); font-weight: 400; line-height: .96; letter-spacing: -.04em; }
 .donghua-card p, .watch-donghua-card p { color: #aaa2a5; font-family: "Iowan Old Style", Georgia, serif; font-size: 14px; line-height: 1.62; }
+.coverage-status { margin: 0; color: #8f878a !important; font-size: 12px !important; font-style: italic; }
+.coverage-progress { display: grid; gap: 8px; margin-top: 4px; }
+.coverage-progress span { color: #958d90; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+.coverage-progress i { height: 5px; position: relative; overflow: hidden; background: rgba(238,233,226,.12); }
+.coverage-progress i::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--progress); background: var(--signal); }
 .donghua-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .donghua-tags span { padding: 6px 8px; border: 1px solid rgba(238,233,226,.13); color: #8f878a; font-size: 8px; letter-spacing: .11em; text-transform: uppercase; }
+.coverage-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: auto; padding-top: 24px; }
 .donghua-card-cta { width: fit-content; display: inline-flex; align-items: center; gap: 9px; margin-top: 24px; padding-bottom: 7px; border-bottom: 1px solid rgba(237,0,102,.75); color: #d7cfd1; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .donghua-card-cta svg { color: var(--signal); }
+.coverage-card-actions .donghua-card-cta { margin-top: 0; }
+.coverage-stream-link { width: fit-content; display: inline-flex; align-items: center; gap: 8px; padding-bottom: 7px; border-bottom: 1px solid rgba(238,233,226,.25); color: #9e9699; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.coverage-stream-link:hover, .coverage-stream-link:focus-visible { color: var(--paper); border-color: rgba(237,0,102,.75); }
+.coverage-updated { display: block; margin-top: 16px; color: #746c70; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; }
 
 .watch-donghua-section { padding: 0 0 86px; }
 .watch-donghua-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }

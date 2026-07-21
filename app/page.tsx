@@ -3,9 +3,11 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { FiArrowRight, FiArrowUpRight, FiBookOpen, FiBriefcase, FiDownload, FiMail, FiPlay, FiSearch } from "react-icons/fi";
 import { audienceSnapshot, mediaKitUrl } from "./audience";
+import CoverageGrid from "./components/CoverageGrid";
+import FeaturedVideoGrid from "./components/FeaturedVideoGrid";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
-import { coverageSeason, creatorActivitySignals, currentlyCoveringLine, donghuaCoverage, donghuaCoverageLastUpdated } from "./donghua";
+import { coverageLastUpdated, coverageSeason, creatorActivitySignals, currentlyCoveringLine, featuredVideos, summerCoverage } from "./coverage";
 import { notes } from "./senpai-notes/data";
 
 const partnershipEmail = "animejay89@gmail.com";
@@ -18,11 +20,6 @@ const socialLinks = [
 ];
 
 const topics = ["Anime", "Donghua", "Philosophy", "Culture"];
-
-const featuredSlots = [
-  { number: "01", type: "Anime culture · Video essay", title: "Anime has more to say", note: "A fast, thoughtful take built for the conversation that starts after the credits roll.", href: "https://www.instagram.com/reel/DaQZXg2NcXB/?igsh=MWQ5YzF0aGNyY291eA==", art: "feature-art--logo" },
-  { number: "02", type: "Creator perspective · Reel", title: "The conversation after the credits", note: "Where reaction gives way to interpretation, context, and the question worth debating.", href: "https://www.instagram.com/reel/DadRSn7tibw/?igsh=MTF3MWNjZ3NmNms4cQ==", art: "feature-art--city" },
-];
 
 const partnerships = ["Sponsored short-form", "Streaming campaigns", "Product integrations", "Events & conventions", "Creator collaborations", "Brand ambassadorships"];
 
@@ -102,7 +99,7 @@ export default function Home() {
             <p className="eyebrow">Currently covering · Summer 2026</p>
             <h2 id="summer-coverage-heading">Summer 2026 Anime & Donghua</h2>
           </div>
-          <p className="section-note">Not just recommendations. This is the active watch board for the anime and Chinese animated series I’m watching, reacting to, and helping people discover.<br /><span>{donghuaCoverageLastUpdated}</span></p>
+          <p className="section-note">Not just recommendations. This is the active watch board for the anime and Chinese animated series I’m watching, reacting to, and helping people discover.<br /><span>{coverageLastUpdated}</span></p>
         </div>
         <div className="activity-signal-grid" aria-label="Current creator activity signals">
           {creatorActivitySignals.map((item) => (
@@ -112,20 +109,7 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <div className="donghua-grid">
-          {donghuaCoverage.map((show, index) => (
-            <article className="donghua-card" key={show.title}>
-              <div className="donghua-card-top">
-                <span>0{index + 1}</span>
-                <small>{show.alsoKnownAs.join(" · ")}</small>
-              </div>
-              <h3>{show.title}</h3>
-              <p>{show.description}</p>
-              <div className="donghua-tags">{show.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              <Link className="donghua-card-cta" href="/watch#summer-coverage">{show.cta} <FiArrowUpRight aria-hidden="true" /></Link>
-            </article>
-          ))}
-        </div>
+        <CoverageGrid entries={summerCoverage} />
       </section>
 
       <section className="fan-section container reveal-section" aria-labelledby="fan-heading">
@@ -143,16 +127,9 @@ export default function Home() {
       <section id="featured" className="featured-section container reveal-section">
         <div className="section-heading">
           <div><p className="eyebrow">Selected work</p><h2>What brands and followers should watch.</h2></div>
-          <p className="section-note">Two hand-picked pieces from<br />the SenpaiS1lva feed.</p>
+          <p className="section-note">A lightweight path into the feed. No autoplay, no heavy embeds.</p>
         </div>
-        <div className="featured-grid">
-          {featuredSlots.map((item) => (
-            <a className="feature-card" key={item.number} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Watch selected Instagram reel ${item.number}`}>
-              <div className={`feature-placeholder ${item.art}`}><span>{item.number}</span><FaInstagram aria-hidden="true" /><strong>WATCH REEL</strong></div>
-              <p>{item.type}</p><h3>{item.title}</h3><small>{item.note}</small><FiArrowUpRight className="feature-arrow" aria-hidden="true" />
-            </a>
-          ))}
-        </div>
+        <FeaturedVideoGrid videos={featuredVideos.filter((video) => video.featured)} limit={3} variant="home" />
       </section>
 
       <section className="audience-section container reveal-section" aria-labelledby="audience-heading">

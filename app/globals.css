@@ -271,6 +271,26 @@ h1 em { color: var(--signal); font-weight: 400; }
 .watch-card h3 { margin: 7px 0; font-family: var(--display); font-size: 34px; font-weight: 400; }
 .watch-card p { margin: 0; color: #a79fa2; font-family: "Iowan Old Style", Georgia, serif; }
 .watch-card > svg:last-child { position: absolute; right: 25px; bottom: 27px; color: var(--signal); font-size: 22px; }
+.video-discovery-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.featured-video-grid { grid-template-columns: repeat(3, 1fr); }
+.video-discovery-card { isolation: isolate; }
+.video-discovery-card.watch-card { min-height: 420px; padding: 18px; gap: 12px; }
+.video-discovery-card.watch-card::before { background: var(--video-thumb, url("/cityscape.jpeg")) center / cover no-repeat; }
+.video-thumb { min-height: 172px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border: 1px solid rgba(238,233,226,.14); background: #100d10; }
+.video-thumb::before { content: ""; position: absolute; inset: 0; opacity: .42; background: var(--video-thumb, url("/cityscape.jpeg")) center / cover no-repeat; filter: grayscale(.2) contrast(1.1) brightness(.7); transition: transform .35s ease, opacity .35s ease; }
+.video-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,.1), rgba(5,5,5,.8)); }
+.video-discovery-card:hover .video-thumb::before { transform: scale(1.03); opacity: .52; }
+.video-thumb span, .video-thumb svg, .video-thumb strong { position: relative; z-index: 2; }
+.video-thumb span { position: absolute; left: 13px; top: 12px; color: var(--signal); font-size: 10px; letter-spacing: .16em; }
+.video-thumb svg { width: 46px; height: 46px; padding: 13px; border: 1px solid rgba(238,233,226,.4); border-radius: 50%; color: var(--paper); }
+.video-thumb strong { position: absolute; right: 13px; bottom: 12px; color: #d7cfd1; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
+.video-discovery-card.watch-card > p { margin: 0; color: var(--signal); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
+.video-discovery-card.watch-card h3 { margin: 0; font-size: 29px; line-height: .98; }
+.video-discovery-card.watch-card small { display: block; color: #928a8d; font-family: "Iowan Old Style", Georgia, serif; font-size: 13px; line-height: 1.45; }
+.video-discovery-card .video-description { color: #aaa2a5; }
+.video-meta-line { min-height: 13px; display: flex; flex-wrap: wrap; gap: 10px; color: #746c70; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.video-card-cta { width: fit-content; display: inline-flex; align-items: center; gap: 9px; margin-top: auto; padding-bottom: 7px; border-bottom: 1px solid rgba(237,0,102,.75); color: #d7cfd1; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+.video-card-cta svg { color: var(--signal); }
 .platform-section { padding: 25px 0 95px; }
 .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
 .platform-grid a { min-height: 170px; display: flex; flex-direction: column; gap: 8px; padding: 24px; border-right: 1px solid var(--line); background: #0b0b0d; }
@@ -465,6 +485,11 @@ h1 em { color: var(--signal); font-weight: 400; }
 @keyframes status-pulse { 50% { opacity: .45; transform: scale(.72); } }
 @keyframes section-reveal { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 
+@media (max-width: 1100px) {
+  .video-discovery-grid { grid-template-columns: repeat(3, 1fr); }
+  .featured-video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 800px) {
   .container { width: min(100% - 34px, 550px); }
   .nav { height: 74px; }
@@ -532,6 +557,7 @@ h1 em { color: var(--signal); font-weight: 400; }
   .start-copy h2 { font-size: clamp(40px, 12vw, 56px); }
   .featured-section { padding-top: 44px; }
   .featured-grid { grid-template-columns: 1fr; }
+  .featured-video-grid, .video-discovery-grid { grid-template-columns: 1fr; }
   .feature-placeholder { min-height: 250px; }
   .stats-section { grid-template-columns: 1fr; gap: 28px; margin-bottom: 68px; }
   .stats-grid { grid-template-columns: 1fr; }
@@ -558,6 +584,7 @@ h1 em { color: var(--signal); font-weight: 400; }
   .page-cta .container, .contact-panel-inner { align-items: flex-start; flex-direction: column; }
   .watch-grid, .recommendation-grid, .notes-grid, .brand-fit-grid, .about-story { grid-template-columns: 1fr; }
   .watch-card { min-height: 330px; }
+  .video-discovery-card.watch-card { min-height: 360px; }
   .platform-grid { grid-template-columns: 1fr; }
   .platform-grid a { min-height: 135px; border-right: 0; border-bottom: 1px solid var(--line); }
   .platform-grid a:last-child { border-bottom: 0; }
