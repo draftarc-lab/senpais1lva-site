@@ -28,8 +28,8 @@ const partnerships = ["Sponsored short-form", "Streaming campaigns", "Product in
 
 const commandLinks = [
   { label: "Watch", meta: "Video hub", href: "/watch" },
-  { label: "Recommendations", meta: "Taste map", href: "/recommendations" },
-  { label: "Senpai Notes", meta: "Deep talk", href: "/senpai-notes" },
+  { label: "Notes", meta: "Deep talk", href: "/senpai-notes" },
+  { label: "Recs", meta: "Taste map", href: "/recommendations" },
   { label: "Summer Coverage", meta: "Now airing", href: "#summer-coverage" },
 ];
 
@@ -68,8 +68,8 @@ export default function Home() {
           <h1>Anime has<br /><em>more to say.</em></h1>
           <p className="hero-intro">Welcome to the world of <strong>SenpaiS1lva</strong>, where anime, donghua, and the ideas hiding underneath them get the conversation they deserve.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Watch on YouTube <FiPlay aria-hidden="true" /></a>
-            <a className="text-link" href="#about">Meet Silva <span aria-hidden="true">↓</span></a>
+            <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer" aria-label="Watch SenpaiS1lva on YouTube">Watch on YouTube <FiPlay aria-hidden="true" /></a>
+            <a className="text-link" href="#about" aria-label="Jump to the Meet Silva section">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
           <a className="current-covering-strip" href="#summer-coverage" aria-label="Jump to Summer 2026 anime and donghua coverage">
             <span>Summer coverage</span>
@@ -140,6 +140,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="featured" className="featured-section container reveal-section">
+        <div className="section-heading">
+          <div><p className="eyebrow">Selected work</p><h2>What brands and followers should watch.</h2></div>
+          <p className="section-note">Two hand-picked pieces from<br />the SenpaiS1lva feed.</p>
+        </div>
+        <div className="featured-grid">
+          {featuredSlots.map((item) => (
+            <a className="feature-card" key={item.number} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Watch selected Instagram reel ${item.number}`}>
+              <div className={`feature-placeholder ${item.art}`}><span>{item.number}</span><FaInstagram aria-hidden="true" /><strong>WATCH REEL</strong></div>
+              <p>{item.type}</p><h3>{item.title}</h3><small>{item.note}</small><FiArrowUpRight className="feature-arrow" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </section>
+
       <section className="audience-section container reveal-section" aria-labelledby="audience-heading">
         <div className="audience-intro">
           <p className="eyebrow">Audience snapshot</p>
@@ -171,21 +186,6 @@ export default function Home() {
           <h2>Thoughtful anime talk without losing the fun.</h2>
           <p>SenpaiS1lva creates entertaining, human conversations around anime, donghua, culture, psychology, and the ideas beneath the animation. The goal is simple: help longtime fans see more in the stories they love and give curious newcomers a reason to step inside.</p>
           <a className="editorial-link" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Explore the YouTube channel <FiArrowUpRight aria-hidden="true" /></a>
-        </div>
-      </section>
-
-      <section id="featured" className="featured-section container reveal-section">
-        <div className="section-heading">
-          <div><p className="eyebrow">Selected work</p><h2>What brands and followers should watch.</h2></div>
-          <p className="section-note">Two hand-picked pieces from<br />the SenpaiS1lva feed.</p>
-        </div>
-        <div className="featured-grid">
-          {featuredSlots.map((item) => (
-            <a className="feature-card" key={item.number} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Watch selected Instagram reel ${item.number}`}>
-              <div className={`feature-placeholder ${item.art}`}><span>{item.number}</span><FaInstagram aria-hidden="true" /><strong>WATCH REEL</strong></div>
-              <p>{item.type}</p><h3>{item.title}</h3><small>{item.note}</small><FiArrowUpRight className="feature-arrow" aria-hidden="true" />
-            </a>
-          ))}
         </div>
       </section>
 

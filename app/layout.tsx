@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "SenpaiS1lva", description: "Anime has more to say.", images: ["/og-image.jpg"] },
   icons: { icon: "/favicon.ico", shortcut: "/favicon.ico", apple: "/nav-logo.webp" },
+  other: { "codex-preview": "development" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
