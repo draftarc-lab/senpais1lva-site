@@ -132,6 +132,19 @@ export const featuredVideos: FeaturedVideo[] = [
     cta: "Watch the breakdown",
   },
   {
+    slug: "reaction-clips-that-open-conversation",
+    title: "Reaction clips that open the conversation",
+    platform: "Instagram",
+    url: "https://www.instagram.com/reel/DadRSn7tibw/?igsh=MTF3MWNjZ3NmNms4cQ==",
+    thumbnail: "/about-silva.webp",
+    category: "Reactions",
+    animeOrDonghuaTitle: "Anime commentary",
+    description:
+      "Fast creator energy with a point of view: the kind of clip that gives fans a reason to keep talking after the reel ends.",
+    featured: true,
+    cta: "Watch the reaction",
+  },
+  {
     slug: "summer-donghua-coverage",
     title: "Summer 2026 donghua coverage board",
     platform: "Site",
@@ -171,3 +184,11 @@ export const featuredVideos: FeaturedVideo[] = [
     cta: "Watch on TikTok",
   },
 ];
+
+const selectedWorkSlugs = new Set([
+  "latest-youtube",
+  "anime-has-more-to-say",
+  "reaction-clips-that-open-conversation",
+]);
+
+export const selectedWorkVideos = featuredVideos.filter((video) => selectedWorkSlugs.has(video.slug));

@@ -7,7 +7,8 @@ import CoverageGrid from "./components/CoverageGrid";
 import FeaturedVideoGrid from "./components/FeaturedVideoGrid";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
-import { coverageLastUpdated, coverageSeason, creatorActivitySignals, currentlyCoveringLine, featuredVideos, summerCoverage } from "./coverage";
+import { coverageLastUpdated, coverageSeason, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
+import { creatorProfile, featuredCreatorStatusItems } from "./creator";
 import { notes } from "./senpai-notes/data";
 
 const partnershipEmail = "animejay89@gmail.com";
@@ -127,9 +128,9 @@ export default function Home() {
       <section id="featured" className="featured-section container reveal-section">
         <div className="section-heading">
           <div><p className="eyebrow">Selected work</p><h2>What brands and followers should watch.</h2></div>
-          <p className="section-note">A lightweight path into the feed. No autoplay, no heavy embeds.</p>
+          <p className="section-note">Real creator output, curated lightly so visitors can understand the voice before they dive into the full feed.</p>
         </div>
-        <FeaturedVideoGrid videos={featuredVideos.filter((video) => video.featured)} limit={3} variant="home" />
+        <FeaturedVideoGrid videos={selectedWorkVideos} limit={3} variant="home" />
       </section>
 
       <section className="audience-section container reveal-section" aria-labelledby="audience-heading">
@@ -144,12 +145,19 @@ export default function Home() {
           <a className="editorial-link" href={mediaKitUrl} target="_blank" rel="noopener noreferrer">View media kit <FiArrowUpRight aria-hidden="true" /></a>
         </div>
         <div className="audience-grid" aria-label="Verified SenpaiS1lva audience numbers">
-          {audienceSnapshot.metrics.map((metric) => (
-            <article className="audience-card" key={metric.label}>
+          <article className="audience-card audience-card--total" aria-label={audienceSnapshot.total.ariaLabel}>
+            <span>{audienceSnapshot.total.label}</span>
+            <strong>{audienceSnapshot.total.value}</strong>
+            <small>verified followers</small>
+          </article>
+          <div className="audience-platform-grid" aria-label="Verified platform follower breakdown">
+            {audienceSnapshot.platforms.map((metric) => (
+            <article className="audience-card audience-card--platform" key={metric.label} aria-label={metric.ariaLabel}>
               <strong>{metric.value}</strong>
               <span>{metric.label}</span>
             </article>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -161,8 +169,24 @@ export default function Home() {
         <div className="start-copy">
           <p className="eyebrow">Creator · Host · Your anime senpai</p>
           <h2>Thoughtful anime talk without losing the fun.</h2>
-          <p>SenpaiS1lva creates entertaining, human conversations around anime, donghua, culture, psychology, and the ideas beneath the animation. The goal is simple: help longtime fans see more in the stories they love and give curious newcomers a reason to step inside.</p>
-          <a className="editorial-link" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Explore the YouTube channel <FiArrowUpRight aria-hidden="true" /></a>
+          <p>{creatorProfile.name} is a creator, host, and anime and donghua commentator based in {creatorProfile.location}. The channel moves between culture, psychology, philosophy, recommendations, and the conversations that make fandom feel alive.</p>
+          <div className="creator-role-list" aria-label="SenpaiS1lva creator focus areas">
+            {creatorProfile.roles.map((role) => <span key={role}>{role}</span>)}
+            {creatorProfile.focus.slice(0, 3).map((focus) => <span key={focus}>{focus}</span>)}
+          </div>
+          <div className="creator-status-grid" aria-label="Current SenpaiS1lva creator status">
+            {featuredCreatorStatusItems.map((item) => (
+              <Link className="creator-status-card" href={item.href ?? "/about"} key={item.label}>
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+                {item.cta && <small>{item.cta} <FiArrowUpRight aria-hidden="true" /></small>}
+              </Link>
+            ))}
+          </div>
+          <div className="start-links">
+            <Link className="editorial-link" href="/about">Read the full About <FiArrowUpRight aria-hidden="true" /></Link>
+            <a className="editorial-link editorial-link--quiet" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Explore YouTube <FiArrowUpRight aria-hidden="true" /></a>
+          </div>
         </div>
       </section>
 
@@ -190,7 +214,6 @@ export default function Home() {
               <a className="primary-button" href={`mailto:${partnershipEmail}?subject=Partnership%20Inquiry%20for%20SenpaiS1lva`}><FiMail aria-hidden="true" /> Partnership inquiry</a>
               <a className="media-kit-link" href={mediaKitUrl} target="_blank" rel="noopener noreferrer"><FiDownload aria-hidden="true" /> View media kit</a>
             </div>
-            <a className="partner-email" href={`mailto:${partnershipEmail}`}>{partnershipEmail}</a>
           </div>
         </div>
       </section>
