@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const developmentPreviewMeta =
@@ -60,4 +61,39 @@ test("renders verified work with me proof without visible raw email text", async
   assert.match(html, /16\.5K/);
   assert.match(html, /Partnership inquiry/);
   assert.doesNotMatch(html, />animejay89@gmail\.com</);
+});
+
+test("renders recommendations route with the phase 4 discovery shell", async () => {
+  const response = await renderPath("/recommendations");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Intent-first shelves/);
+  assert.match(html, /Anime \+ donghua/);
+  assert.match(html, /Loading recommendations/);
+});
+
+test("renders senpai notes with metadata and related content paths", async () => {
+  const indexResponse = await renderPath("/senpai-notes");
+  const indexHtml = await indexResponse.text();
+  const detailResponse = await renderPath("/senpai-notes/tournament-arcs-and-ritual");
+  const detailHtml = await detailResponse.text();
+
+  assert.equal(indexResponse.status, 200);
+  assert.match(indexHtml, /Concise editorial commentary/);
+  assert.match(indexHtml, /Updated[\s\S]*2026-07-21/);
+  assert.equal(detailResponse.status, 200);
+  assert.match(detailHtml, /Keep exploring/);
+  assert.match(detailHtml, /Follow the thread/);
+  assert.match(detailHtml, /Related note/);
+  assert.match(detailHtml, /Find your next watch/);
+});
+
+test("recommendation filters are url-aware, accessible, and resettable", async () => {
+  const source = await readFile(new URL("../app/components/RecommendationExplorer.tsx", import.meta.url), "utf8");
+
+  assert.match(source, /useSearchParams/);
+  assert.match(source, /aria-pressed/);
+  assert.match(source, /No current recommendation matches those filters/);
+  assert.match(source, /Reset filters/);
 });

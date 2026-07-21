@@ -21,6 +21,7 @@ export type CoverageEntry = {
   image?: string;
   featured?: boolean;
   cta: string;
+  relatedRecommendationSlug?: string;
 };
 
 export type FeaturedVideo = {
@@ -36,6 +37,8 @@ export type FeaturedVideo = {
   featured?: boolean;
   duration?: string;
   cta: string;
+  relatedNoteSlug?: string;
+  relatedRecommendationSlug?: string;
 };
 
 export const coverageSeason = "Summer 2026 anime & donghua";
@@ -66,6 +69,7 @@ export const summerCoverage: CoverageEntry[] = [
     },
     featured: true,
     cta: "Watch my coverage",
+    relatedRecommendationSlug: "the-chosen-one",
   },
   {
     slug: "secrets-of-the-rivers",
@@ -80,6 +84,7 @@ export const summerCoverage: CoverageEntry[] = [
     coverageUrl: "/watch#secrets-of-the-rivers",
     featured: true,
     cta: "Watch my coverage",
+    relatedRecommendationSlug: "secrets-of-the-rivers",
   },
   {
     slug: "crowned-in-a-hundred-days",
@@ -98,6 +103,7 @@ export const summerCoverage: CoverageEntry[] = [
     },
     featured: true,
     cta: "Start here",
+    relatedRecommendationSlug: "crowned-in-a-hundred-days",
   },
 ];
 
@@ -130,6 +136,7 @@ export const featuredVideos: FeaturedVideo[] = [
       "A sharp entry point into the SenpaiS1lva lens: reactions are fun, but the conversation after the credits is where the good stuff lives.",
     featured: true,
     cta: "Watch the breakdown",
+    relatedNoteSlug: "why-anime-loves-school",
   },
   {
     slug: "reaction-clips-that-open-conversation",
@@ -143,6 +150,8 @@ export const featuredVideos: FeaturedVideo[] = [
       "Fast creator energy with a point of view: the kind of clip that gives fans a reason to keep talking after the reel ends.",
     featured: true,
     cta: "Watch the reaction",
+    relatedNoteSlug: "the-fantasy-of-doing-everything-alone",
+    relatedRecommendationSlug: "hunter-x-hunter",
   },
   {
     slug: "summer-donghua-coverage",
@@ -156,6 +165,7 @@ export const featuredVideos: FeaturedVideo[] = [
       "Follow the active watch board for the donghua Silva is covering, including alternate titles so you can actually find the shows.",
     featured: true,
     cta: "See my coverage",
+    relatedRecommendationSlug: "the-chosen-one",
   },
   {
     slug: "recommendation-map",
@@ -169,6 +179,7 @@ export const featuredVideos: FeaturedVideo[] = [
       "Mood-first recommendations for viewers who want taste, context, and a reason to start instead of another recycled ranking.",
     featured: true,
     cta: "Explore all videos",
+    relatedRecommendationSlug: "link-click",
   },
   {
     slug: "fast-reactions",

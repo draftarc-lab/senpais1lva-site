@@ -1,9 +1,44 @@
-export const notes = [
+export type SenpaiNote = {
+  title: string;
+  slug: string;
+  summary: string;
+  excerpt: string;
+  category: string;
+  lens: string;
+  publishDate: string;
+  updatedDate?: string;
+  readingTime: string;
+  relatedAnimeOrDonghua: string[];
+  relatedVideoSlug?: string;
+  relatedRecommendationSlug?: string;
+  relatedNoteSlugs: string[];
+  socialImage: string;
+  featured?: boolean;
+  question: string;
+  paragraphs: string[];
+};
+
+function calculateReadingTime(paragraphs: string[]) {
+  const words = paragraphs.join(" ").trim().split(/\s+/).filter(Boolean).length;
+  return `${Math.max(1, Math.ceil(words / 220))} min read`;
+}
+
+const noteDrafts = [
   {
     slug: "why-anime-loves-school",
+    category: "Culture",
     lens: "Sociology",
     title: "Why anime keeps returning to school",
+    summary: "A concise look at why school settings work as miniature societies in anime.",
     excerpt: "School is not only a familiar backdrop. It is a miniature society with hierarchy, ritual, competition, belonging, and a built-in deadline for becoming someone.",
+    publishDate: "2026-07-12",
+    updatedDate: "2026-07-21",
+    relatedAnimeOrDonghua: ["School-life anime", "Coming-of-age anime"],
+    relatedRecommendationSlug: "hunter-x-hunter",
+    relatedVideoSlug: "anime-has-more-to-say",
+    relatedNoteSlugs: ["tournament-arcs-and-ritual"],
+    socialImage: "/og-image.jpg",
+    featured: true,
     question: "Perfect setting or overused crutch?",
     paragraphs: [
       "Anime does not return to school only because its audience recognizes classrooms. School is an unusually efficient social world. Put thirty young people in one building and you immediately have hierarchy, friendship, rivalry, authority, exclusion, performance, and rules everyone understands before the first scene finishes.",
@@ -15,9 +50,19 @@ export const notes = [
   },
   {
     slug: "tournament-arcs-and-ritual",
+    category: "Philosophy",
     lens: "Religion & ritual",
     title: "Why tournament arcs can feel like church",
+    summary: "How public anime battles turn private ambition into shared ritual.",
     excerpt: "The crowd gathers, heroes are tested, shared emotion peaks, and individual struggle becomes communal experience. Durkheim would have had a field day with the Chūnin Exams.",
+    publishDate: "2026-07-14",
+    updatedDate: "2026-07-21",
+    relatedAnimeOrDonghua: ["Tournament arcs", "Naruto", "Hunter × Hunter"],
+    relatedRecommendationSlug: "hunter-x-hunter",
+    relatedVideoSlug: "anime-has-more-to-say",
+    relatedNoteSlugs: ["why-anime-loves-school", "the-fantasy-of-doing-everything-alone"],
+    socialImage: "/og-image.jpg",
+    featured: true,
     question: "Why do fictional crowds make us feel included?",
     paragraphs: [
       "A tournament arc takes private ambition and places it inside a public ritual. Fighters enter a marked space, rules separate ordinary violence from meaningful competition, and a gathered crowd decides that what happens next matters. That structure is older than anime and much bigger than sports.",
@@ -29,9 +74,19 @@ export const notes = [
   },
   {
     slug: "the-fantasy-of-doing-everything-alone",
+    category: "Psychology",
     lens: "Psychology",
     title: "The fantasy of doing everything alone",
+    summary: "Why self-reliance can become a defense, and why anime keeps challenging it.",
     excerpt: "Anime often celebrates self-reliance until the hero discovers that strength without trust is another kind of weakness.",
+    publishDate: "2026-07-16",
+    updatedDate: "2026-07-21",
+    relatedAnimeOrDonghua: ["Hunter × Hunter", "Team-building arcs"],
+    relatedRecommendationSlug: "hunter-x-hunter",
+    relatedVideoSlug: "reaction-clips-that-open-conversation",
+    relatedNoteSlugs: ["tournament-arcs-and-ritual"],
+    socialImage: "/og-image.jpg",
+    featured: true,
     question: "When does independence become avoidance?",
     paragraphs: [
       "The hyper-competent loner is easy to admire. They need nobody, solve every problem, and never risk being disappointed by another person. Fiction makes that independence look like strength because, for a while, it is useful. The character survives situations that would overwhelm someone less capable.",
@@ -42,3 +97,14 @@ export const notes = [
     ],
   },
 ];
+
+export const notes: SenpaiNote[] = noteDrafts.map((note) => ({
+  ...note,
+  readingTime: calculateReadingTime(note.paragraphs),
+}));
+
+export const featuredNotes = notes.filter((note) => note.featured).slice(0, 3);
+
+export function getNoteBySlug(slug?: string) {
+  return notes.find((note) => note.slug === slug);
+}

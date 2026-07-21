@@ -9,7 +9,7 @@ import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 import { coverageLastUpdated, coverageSeason, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
 import { creatorProfile, featuredCreatorStatusItems } from "./creator";
-import { notes } from "./senpai-notes/data";
+import { featuredNotes } from "./senpai-notes/data";
 
 const partnershipEmail = "animejay89@gmail.com";
 
@@ -197,8 +197,8 @@ export default function Home() {
             <Link className="editorial-link" href="/senpai-notes">Read every note <FiArrowUpRight aria-hidden="true" /></Link>
           </div>
           <div className="notes-scroller" aria-label="Featured Senpai Notes">
-            {notes.map((note, index) => <Link className="note-teaser-card" href={`/senpai-notes/${note.slug}`} key={note.slug}>
-              <span>0{index + 1}</span><small>{note.lens}</small><h3>{note.title}</h3><p>{note.excerpt}</p><strong>Read the note <FiArrowUpRight aria-hidden="true" /></strong>
+            {featuredNotes.map((note, index) => <Link className="note-teaser-card" href={`/senpai-notes/${note.slug}`} key={note.slug}>
+              <span>0{index + 1}</span><small>{note.category} · {note.readingTime}</small><h3>{note.title}</h3><p>{note.summary}</p><strong>Continue the thought <FiArrowUpRight aria-hidden="true" /></strong>
             </Link>)}
           </div>
         </div>
