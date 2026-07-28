@@ -8,7 +8,7 @@ import CoverageGrid from "./components/CoverageGrid";
 import FeaturedVideoGrid from "./components/FeaturedVideoGrid";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
-import { coverageLastUpdated, coverageSeason, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
+import { coverageLastUpdated, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
 import { creatorProfile, featuredCreatorStatusItems } from "./creator";
 import { pageMetadata } from "./seo";
 import { featuredNotes } from "./senpai-notes/data";
@@ -77,10 +77,12 @@ export default function Home() {
             <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer" aria-label="Watch SenpaiS1lva on YouTube">Watch on YouTube <FiPlay aria-hidden="true" /></a>
             <a className="text-link hero-secondary-link" href="#about" aria-label="Jump to the Meet Silva section">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
-          <a className="current-covering-strip" href="#summer-coverage" aria-label="Jump to Summer 2026 anime and donghua coverage">
-            <span>Summer coverage</span>
-            <strong>{coverageSeason}: {currentlyCoveringLine}</strong>
-          </a>
+          <Link className="current-covering-strip" href="/watch#summer-coverage" aria-label="Explore Summer 2026 anime and donghua coverage on the Watch page">
+            <span className="coverage-invite">Start with what I’m covering now.</span>
+            <span className="coverage-topic">Summer 2026 anime &amp; donghua</span>
+            <strong>{currentlyCoveringLine}</strong>
+            <span className="coverage-strip-cta">Explore summer coverage <FiArrowRight aria-hidden="true" /></span>
+          </Link>
         </div>
         <div className="identity-stage">
           <div className="logo-halo" aria-hidden="true" />
