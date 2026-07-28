@@ -155,6 +155,24 @@ test("homepage hero copy and secondary cta stay warm and accessible", async () =
   assert.match(css, /\.hero-secondary-link \{[\s\S]*min-height: 46px;[\s\S]*border: 1px solid rgba\(238,233,226,\.22\)/);
 });
 
+test("summer coverage strip is a clear current-content entry point", async () => {
+  const response = await renderPath("/");
+  const html = await response.text();
+  const css = await readFile(new URL("../app/donghua.css", import.meta.url), "utf8");
+  const watchResponse = await renderPath("/watch#summer-coverage");
+  const watchHtml = await watchResponse.text();
+
+  assert.equal(response.status, 200);
+  assert.equal(watchResponse.status, 200);
+  assert.match(html, /href="\/watch#summer-coverage"/);
+  assert.match(html, /Start with what I’m covering now\./);
+  assert.match(html, /Summer 2026 anime &amp; donghua/);
+  assert.match(html, /Explore summer coverage/);
+  assert.match(watchHtml, /id="summer-coverage"/);
+  assert.match(css, /\.current-covering-strip \{[\s\S]*grid-template-columns: minmax\(0, 1fr\) auto;[\s\S]*border: 1px solid rgba\(238,233,226,\.24\)/);
+  assert.match(css, /\.coverage-strip-cta \{[\s\S]*min-height: 32px;[\s\S]*border: 1px solid rgba\(238,233,226,\.2\)/);
+});
+
 test("global error page exposes recovery controls", async () => {
   const source = await readFile(new URL("../app/error.tsx", import.meta.url), "utf8");
 
