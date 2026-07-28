@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "./components/JsonLd";
 import "./globals.css";
 import "./donghua.css";
+import "./hero-entry.css";
 import { organizationJsonLd, personJsonLd, websiteJsonLd } from "./structured-data";
 import { siteUrl } from "./seo";
 
