@@ -40,9 +40,9 @@ const commandLinks = [
 ];
 
 const fanPaths = [
-  { kicker: "Find your next obsession", title: "Give me something to watch", copy: "Mood-first picks for anime and donghua fans who want a real answer, not another recycled top ten list.", href: "/recommendations", cta: "Open recommendations", icon: FiSearch },
-  { kicker: "Go beneath the animation", title: "I want the deeper anime talk", copy: "Psychology, philosophy, culture, production, and the ideas that keep echoing after an episode ends and the fandom starts talking.", href: "/senpai-notes", cta: "Enter Senpai Notes", icon: FiBookOpen },
-  { kicker: "Build something worth watching", title: "I’m a brand or collaborator", copy: "Creator-led partnership paths for anime, gaming, entertainment, technology, and culture-forward teams that need an actual point of view.", href: "/work-with-me", cta: "See partnership options", icon: FiBriefcase },
+  { kicker: "Find your next obsession", title: "I need something to watch tonight", copy: "Open mood-first anime and donghua picks when you want a real recommendation without digging through another recycled list.", href: "/recommendations", cta: "Find your next watch", icon: FiSearch },
+  { kicker: "Go beneath the animation", title: "I want the deeper take", copy: "Read notes that unpack culture, psychology, philosophy, and the ideas that stay with you after the episode ends.", href: "/senpai-notes", cta: "Read Senpai Notes", icon: FiBookOpen },
+  { kicker: "Build something worth watching", title: "I want to collaborate", copy: "See partnership paths for anime, gaming, entertainment, tech, and culture-forward teams that want a creator with a point of view.", href: "/work-with-me", cta: "View collab options", icon: FiBriefcase },
 ];
 
 const trustProof = [

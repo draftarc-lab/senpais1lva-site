@@ -187,6 +187,23 @@ test("homepage current lane signal is centralized, editorial, and not live", asy
   assert.match(css, /\.creator-lane-signal \{[\s\S]*width: min\(100%, 620px\);[\s\S]*font-size: 13px;[\s\S]*line-height: 1\.55/);
 });
 
+test("homepage fan pathways use conversational intent copy and clear destinations", async () => {
+  const response = await renderPath("/");
+  const html = await response.text();
+  const globalCss = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+
+  assert.equal(response.status, 200);
+  assert.match(html, /What kind of fan are you\?/);
+  assert.match(html, /href="\/recommendations"[\s\S]*I need something to watch tonight[\s\S]*Find your next watch/);
+  assert.match(html, /href="\/senpai-notes"[\s\S]*I want the deeper take[\s\S]*Read Senpai Notes/);
+  assert.match(html, /href="\/work-with-me"[\s\S]*I want to collaborate[\s\S]*View collab options/);
+  assert.match(html, /Open mood-first anime and donghua picks when you want a real recommendation/);
+  assert.match(html, /Read notes that unpack culture, psychology, philosophy/);
+  assert.match(html, /See partnership paths for anime, gaming, entertainment, tech/);
+  assert.doesNotMatch(html, /Learn more/);
+  assert.match(globalCss, /\.fan-card:hover, \.fan-card:focus-visible \{[\s\S]*border-color: rgba\(237,0,102,\.62\)/);
+});
+
 test("homepage card previews stay concise without replacing destination copy", async () => {
   const homeResponse = await renderPath("/");
   const homeHtml = await homeResponse.text();
@@ -199,7 +216,7 @@ test("homepage card previews stay concise without replacing destination copy", a
   assert.match(homeHtml, /A chase-heavy mystery where hidden identities, family tension, and sharp episode turns/);
   assert.match(homeHtml, /Start here first for longer breakdowns, fresh reactions, and current coverage/);
   assert.match(homeHtml, /School works because it gives anime hierarchy, pressure, belonging/);
-  assert.match(homeHtml, /Mood-first picks for anime and donghua fans who want a real answer/);
+  assert.match(homeHtml, /Open mood-first anime and donghua picks when you want a real recommendation/);
   assert.match(watchHtml, /A mystery-driven donghua with chase scenes, hidden identities, strange family tension/);
   assert.match(watchHtml, /The cleanest place to catch longer breakdowns, fresh reactions, and current video coverage/);
 });
