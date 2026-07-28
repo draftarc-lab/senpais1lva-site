@@ -1,0 +1,40 @@
+.hero-intro {
+  max-width: 435px;
+  margin-top: 36px;
+  color: #c8c0c2;
+  line-height: 1.76;
+}
+
+.hero-actions {
+  gap: 18px;
+  margin-top: 43px;
+}
+
+.hero-secondary-link {
+  min-height: 46px;
+  padding: 0 15px;
+  border: 1px solid rgba(238,233,226,.22);
+  border-bottom-color: rgba(238,233,226,.32);
+  background: rgba(7,7,8,.28);
+  color: #d4ccce;
+}
+
+.hero-secondary-link:hover,
+.hero-secondary-link:focus-visible {
+  border-color: rgba(237,0,102,.58);
+  background: rgba(237,0,102,.08);
+  box-shadow: 0 0 0 3px rgba(237,0,102,.1);
+}
+
+@media (max-width: 800px) {
+  .hero-intro {
+    max-width: 39rem;
+    margin-top: 30px;
+    line-height: 1.74;
+  }
+
+  .hero-actions {
+    gap: 12px;
+    margin-top: 34px;
+  }
+}
