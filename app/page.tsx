@@ -108,6 +108,16 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="creator-trust-strip container reveal-section" aria-labelledby="creator-trust-heading">
+        <Image className="creator-trust-photo" src="/about-silva.webp" alt="SenpaiS1lva smiling at a restaurant" width={112} height={112} sizes="112px" loading="lazy" />
+        <div>
+          <p className="eyebrow">Meet the creator</p>
+          <h2 id="creator-trust-heading">A real voice behind the anime talk.</h2>
+          <p>Silva is the creator and host behind SenpaiS1lva, covering anime, donghua, culture, psychology, philosophy, and the shows worth arguing about.</p>
+        </div>
+        <Link className="editorial-link" href="/about">Meet Silva <FiArrowUpRight aria-hidden="true" /></Link>
+      </section>
+
       <section id="summer-coverage" className="donghua-section container reveal-section" aria-labelledby="summer-coverage-heading">
         <div className="section-heading">
           <div>

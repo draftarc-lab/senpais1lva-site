@@ -204,6 +204,25 @@ test("homepage fan pathways use conversational intent copy and clear destination
   assert.match(globalCss, /\.fan-card:hover, \.fan-card:focus-visible \{[\s\S]*border-color: rgba\(237,0,102,\.62\)/);
 });
 
+test("homepage introduces Silva real photo before the first major content grid", async () => {
+  const response = await renderPath("/");
+  const html = await response.text();
+  const pageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const css = await readFile(new URL("../app/donghua.css", import.meta.url), "utf8");
+
+  assert.equal(response.status, 200);
+  assert.ok(html.indexOf("creator-trust-strip") > -1);
+  assert.ok(html.indexOf("creator-trust-strip") < html.indexOf("id=\"summer-coverage\""));
+  assert.match(html, /A real voice behind the anime talk/);
+  assert.match(html, /href="\/about"[\s\S]*Meet Silva/);
+  assert.match(pageSource, /className="creator-trust-photo" src="\/about-silva\.webp"/);
+  assert.match(pageSource, /width=\{112\} height=\{112\}/);
+  assert.match(pageSource, /loading="lazy"/);
+  assert.match(pageSource, /alt="SenpaiS1lva smiling at a restaurant"/);
+  assert.match(css, /\.creator-trust-strip \{[\s\S]*grid-template-columns: auto minmax\(0, 1fr\) auto/);
+  assert.match(css, /@media \(max-width: 800px\)[\s\S]*\.creator-trust-strip \{ grid-template-columns: auto minmax\(0, 1fr\)/);
+});
+
 test("homepage card previews stay concise without replacing destination copy", async () => {
   const homeResponse = await renderPath("/");
   const homeHtml = await homeResponse.text();
