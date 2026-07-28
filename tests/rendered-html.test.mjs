@@ -140,6 +140,21 @@ test("homepage hero logo hierarchy stays restrained and scoped", async () => {
   assert.match(globalCss, /\.nav-logo \{/);
 });
 
+test("homepage hero copy and secondary cta stay warm and accessible", async () => {
+  const response = await renderPath("/");
+  const html = await response.text();
+  const css = await readFile(new URL("../app/hero-entry.css", import.meta.url), "utf8");
+  const layoutSource = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+
+  assert.equal(response.status, 200);
+  assert.match(html, /<h1>Anime has<br\/><em>more to say\.<\/em><\/h1>/);
+  assert.match(html, /class="text-link hero-secondary-link"/);
+  assert.match(layoutSource, /import "\.\/hero-entry\.css";/);
+  assert.match(css, /\.hero-intro \{[\s\S]*max-width: 435px;[\s\S]*margin-top: 36px;[\s\S]*line-height: 1\.76/);
+  assert.match(css, /\.hero-actions \{[\s\S]*gap: 18px;[\s\S]*margin-top: 43px/);
+  assert.match(css, /\.hero-secondary-link \{[\s\S]*min-height: 46px;[\s\S]*border: 1px solid rgba\(238,233,226,\.22\)/);
+});
+
 test("global error page exposes recovery controls", async () => {
   const source = await readFile(new URL("../app/error.tsx", import.meta.url), "utf8");
 
