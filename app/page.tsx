@@ -75,7 +75,7 @@ export default function Home() {
           <p className="hero-intro">Welcome to the world of <strong>SenpaiS1lva</strong>, where anime, donghua, and the ideas hiding underneath them get the conversation they deserve.</p>
           <div className="hero-actions">
             <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer" aria-label="Watch SenpaiS1lva on YouTube">Watch on YouTube <FiPlay aria-hidden="true" /></a>
-            <a className="text-link" href="#about" aria-label="Jump to the Meet Silva section">Meet Silva <span aria-hidden="true">↓</span></a>
+            <a className="text-link hero-secondary-link" href="#about" aria-label="Jump to the Meet Silva section">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
           <a className="current-covering-strip" href="#summer-coverage" aria-label="Jump to Summer 2026 anime and donghua coverage">
             <span>Summer coverage</span>
