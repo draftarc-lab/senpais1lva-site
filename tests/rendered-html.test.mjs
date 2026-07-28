@@ -173,6 +173,23 @@ test("summer coverage strip is a clear current-content entry point", async () =>
   assert.match(css, /\.coverage-strip-cta \{[\s\S]*min-height: 32px;[\s\S]*border: 1px solid rgba\(238,233,226,\.2\)/);
 });
 
+test("homepage card previews stay concise without replacing destination copy", async () => {
+  const homeResponse = await renderPath("/");
+  const homeHtml = await homeResponse.text();
+  const watchResponse = await renderPath("/watch");
+  const watchHtml = await watchResponse.text();
+
+  assert.equal(homeResponse.status, 200);
+  assert.equal(watchResponse.status, 200);
+  assert.match(homeHtml, /This is folklore, dread, and supernatural mystery colliding as old forces wake/);
+  assert.match(homeHtml, /A chase-heavy mystery where hidden identities, family tension, and sharp episode turns/);
+  assert.match(homeHtml, /Start here first for longer breakdowns, fresh reactions, and current coverage/);
+  assert.match(homeHtml, /School works because it gives anime hierarchy, pressure, belonging/);
+  assert.match(homeHtml, /Mood-first picks for anime and donghua fans who want a real answer/);
+  assert.match(watchHtml, /A mystery-driven donghua with chase scenes, hidden identities, strange family tension/);
+  assert.match(watchHtml, /The cleanest place to catch longer breakdowns, fresh reactions, and current video coverage/);
+});
+
 test("global error page exposes recovery controls", async () => {
   const source = await readFile(new URL("../app/error.tsx", import.meta.url), "utf8");
 

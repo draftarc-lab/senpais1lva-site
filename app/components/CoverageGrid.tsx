@@ -31,7 +31,7 @@ export default function CoverageGrid({ entries, variant = "home" }: CoverageGrid
               <span>{entry.status}</span>
             </div>
             <h3>{entry.canonicalTitle}</h3>
-            <p>{entry.description}</p>
+            <p>{variant === "home" ? entry.homepageDescription ?? entry.description : entry.description}</p>
             {hasVerifiedProgress(entry) ? (
               <div className="coverage-progress" aria-label={`${entry.canonicalTitle} verified episode progress`}>
                 <span>

@@ -12,6 +12,7 @@ export type CoverageEntry = {
   contentType: CoverageContentType;
   genres: string[];
   description: string;
+  homepageDescription?: string;
   status: string;
   currentEpisode?: number;
   totalEpisodes?: number;
@@ -33,6 +34,7 @@ export type FeaturedVideo = {
   category: "Latest video" | "Anime analysis" | "Donghua coverage" | "Recommendations" | "Reactions";
   animeOrDonghuaTitle: string;
   description: string;
+  homepageDescription?: string;
   publishDate?: string;
   featured?: boolean;
   duration?: string;
@@ -60,6 +62,8 @@ export const summerCoverage: CoverageEntry[] = [
     genres: ["Supernatural", "Mystery", "Horror", "Folklore"],
     description:
       "Folkloric suspense, supernatural mystery, and old forces waking up in a place nobody should have entered.",
+    homepageDescription:
+      "This is folklore, dread, and supernatural mystery colliding as old forces wake in a place nobody should have entered.",
     status: "Actively covering",
     lastUpdated: "July 2026",
     coverageUrl: "/watch#the-chosen-one",
@@ -79,6 +83,8 @@ export const summerCoverage: CoverageEntry[] = [
     genres: ["Mystery", "Adventure", "Suspense"],
     description:
       "A mystery-driven donghua with chase scenes, hidden identities, strange family tension, and the kind of episode turns that make reaction content fun.",
+    homepageDescription:
+      "A chase-heavy mystery where hidden identities, family tension, and sharp episode turns make the reactions easy to find.",
     status: "Actively covering",
     lastUpdated: "July 2026",
     coverageUrl: "/watch#secrets-of-the-rivers",
@@ -94,6 +100,8 @@ export const summerCoverage: CoverageEntry[] = [
     genres: ["Action", "Adventure", "Fantasy", "Crunchyroll", "Currently Airing"],
     description:
       "A currently running Crunchyroll donghua about revenge, royal collapse, impostors, and a 100-day countdown to reclaim a throne.",
+    homepageDescription:
+      "A Crunchyroll donghua about revenge, impostors, royal collapse, and a countdown that keeps the throne barely in reach.",
     status: "Currently airing; actively covering",
     lastUpdated: "July 2026",
     coverageUrl: "/watch#crowned-in-a-hundred-days",
@@ -121,6 +129,8 @@ export const featuredVideos: FeaturedVideo[] = [
     animeOrDonghuaTitle: "Current feed",
     description:
       "The cleanest place to catch longer breakdowns, fresh reactions, and current video coverage without digging through every platform.",
+    homepageDescription:
+      "Start here first for longer breakdowns, fresh reactions, and current coverage without digging through every platform feed yourself.",
     featured: true,
     cta: "Watch on YouTube",
   },
@@ -134,6 +144,8 @@ export const featuredVideos: FeaturedVideo[] = [
     animeOrDonghuaTitle: "Anime culture",
     description:
       "A sharp entry point into the SenpaiS1lva lens: reactions are fun, but the conversation after the credits is where the good stuff lives.",
+    homepageDescription:
+      "A clean entry into the SenpaiS1lva lens: reactions are fun, but the real conversation starts after the credits.",
     featured: true,
     cta: "Watch the breakdown",
     relatedNoteSlug: "why-anime-loves-school",
@@ -148,6 +160,8 @@ export const featuredVideos: FeaturedVideo[] = [
     animeOrDonghuaTitle: "Anime commentary",
     description:
       "Fast creator energy with a point of view: the kind of clip that gives fans a reason to keep talking after the reel ends.",
+    homepageDescription:
+      "Fast creator energy with a clear point of view, built to give fans something to argue with after the reel.",
     featured: true,
     cta: "Watch the reaction",
     relatedNoteSlug: "the-fantasy-of-doing-everything-alone",

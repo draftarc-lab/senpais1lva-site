@@ -40,9 +40,9 @@ const commandLinks = [
 ];
 
 const fanPaths = [
-  { kicker: "Find your next obsession", title: "Give me something to watch", copy: "Mood-first picks for anime and donghua fans who want a real answer, not another recycled top ten.", href: "/recommendations", cta: "Open recommendations", icon: FiSearch },
-  { kicker: "Go beneath the animation", title: "I want the deeper anime talk", copy: "Psychology, philosophy, culture, production, and the ideas that keep echoing after an episode ends.", href: "/senpai-notes", cta: "Enter Senpai Notes", icon: FiBookOpen },
-  { kicker: "Build something worth watching", title: "I’m a brand or collaborator", copy: "Creator-led partnerships for anime, gaming, entertainment, technology, and culture-forward teams.", href: "/work-with-me", cta: "See partnership options", icon: FiBriefcase },
+  { kicker: "Find your next obsession", title: "Give me something to watch", copy: "Mood-first picks for anime and donghua fans who want a real answer, not another recycled top ten list.", href: "/recommendations", cta: "Open recommendations", icon: FiSearch },
+  { kicker: "Go beneath the animation", title: "I want the deeper anime talk", copy: "Psychology, philosophy, culture, production, and the ideas that keep echoing after an episode ends and the fandom starts talking.", href: "/senpai-notes", cta: "Enter Senpai Notes", icon: FiBookOpen },
+  { kicker: "Build something worth watching", title: "I’m a brand or collaborator", copy: "Creator-led partnership paths for anime, gaming, entertainment, technology, and culture-forward teams that need an actual point of view.", href: "/work-with-me", cta: "See partnership options", icon: FiBriefcase },
 ];
 
 const trustProof = [
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
           <div className="notes-scroller" aria-label="Featured Senpai Notes">
             {featuredNotes.map((note, index) => <Link className="note-teaser-card" href={`/senpai-notes/${note.slug}`} key={note.slug}>
-              <span>0{index + 1}</span><small>{note.category} · {note.readingTime}</small><h3>{note.title}</h3><p>{note.summary}</p><strong>Continue the thought <FiArrowUpRight aria-hidden="true" /></strong>
+              <span>0{index + 1}</span><small>{note.category} · {note.readingTime}</small><h3>{note.title}</h3><p>{note.homepageSummary ?? note.summary}</p><strong>Continue the thought <FiArrowUpRight aria-hidden="true" /></strong>
             </Link>)}
           </div>
         </div>

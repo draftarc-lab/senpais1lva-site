@@ -44,7 +44,7 @@ export default function FeaturedVideoGrid({ videos, limit, variant = "watch" }: 
             <p>{video.category}</p>
             <h3>{video.title}</h3>
             <small>{video.animeOrDonghuaTitle}</small>
-            <small className="video-description">{video.description}</small>
+            <small className="video-description">{variant === "home" ? video.homepageDescription ?? video.description : video.description}</small>
             {(video.publishDate || video.duration) && (
               <span className="video-meta-line">
                 {video.publishDate && <span>{video.publishDate}</span>}

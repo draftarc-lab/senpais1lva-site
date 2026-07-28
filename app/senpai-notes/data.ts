@@ -2,6 +2,7 @@ export type SenpaiNote = {
   title: string;
   slug: string;
   summary: string;
+  homepageSummary?: string;
   excerpt: string;
   category: string;
   lens: string;
@@ -30,6 +31,7 @@ const noteDrafts = [
     lens: "Sociology",
     title: "Why anime keeps returning to school",
     summary: "A concise look at why school settings work as miniature societies in anime.",
+    homepageSummary: "School works because it gives anime hierarchy, pressure, belonging, and a deadline for becoming someone before graduation arrives.",
     excerpt: "School is not only a familiar backdrop. It is a miniature society with hierarchy, ritual, competition, belonging, and a built-in deadline for becoming someone.",
     publishDate: "2026-07-12",
     updatedDate: "2026-07-21",
@@ -54,6 +56,7 @@ const noteDrafts = [
     lens: "Religion & ritual",
     title: "Why tournament arcs can feel like church",
     summary: "How public anime battles turn private ambition into shared ritual.",
+    homepageSummary: "Tournament arcs turn private ambition into public ritual, where battles become shared proof of effort, identity, and belief.",
     excerpt: "The crowd gathers, heroes are tested, shared emotion peaks, and individual struggle becomes communal experience. Durkheim would have had a field day with the Chūnin Exams.",
     publishDate: "2026-07-14",
     updatedDate: "2026-07-21",
@@ -78,6 +81,7 @@ const noteDrafts = [
     lens: "Psychology",
     title: "The fantasy of doing everything alone",
     summary: "Why self-reliance can become a defense, and why anime keeps challenging it.",
+    homepageSummary: "Self-reliance looks powerful until anime shows how competence can become a wall against trust, help, and being known.",
     excerpt: "Anime often celebrates self-reliance until the hero discovers that strength without trust is another kind of weakness.",
     publishDate: "2026-07-16",
     updatedDate: "2026-07-21",
