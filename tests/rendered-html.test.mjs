@@ -131,6 +131,15 @@ test("navigation and coverage controls stay accessible and scoped", async () => 
   assert.match(coverageSource, /verified episode progress/);
 });
 
+test("homepage hero logo hierarchy stays restrained and scoped", async () => {
+  const css = await readFile(new URL("../app/donghua.css", import.meta.url), "utf8");
+  const globalCss = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+
+  assert.match(css, /\.hero-logo \{[^}]*width: min\(305px, 30vw\)/);
+  assert.match(css, /@media \(max-width: 800px\)[\s\S]*\.hero-logo \{ width: min\(230px, 62vw\); \}/);
+  assert.match(globalCss, /\.nav-logo \{/);
+});
+
 test("global error page exposes recovery controls", async () => {
   const source = await readFile(new URL("../app/error.tsx", import.meta.url), "utf8");
 
