@@ -9,7 +9,7 @@ import FeaturedVideoGrid from "./components/FeaturedVideoGrid";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 import { coverageLastUpdated, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
-import { creatorProfile, featuredCreatorStatusItems } from "./creator";
+import { creatorProfile, currentCreatorSignal, featuredCreatorStatusItems } from "./creator";
 import { pageMetadata } from "./seo";
 import { featuredNotes } from "./senpai-notes/data";
 
@@ -83,6 +83,10 @@ export default function Home() {
             <strong>{currentlyCoveringLine}</strong>
             <span className="coverage-strip-cta">Explore summer coverage <FiArrowRight aria-hidden="true" /></span>
           </Link>
+          <p className="creator-lane-signal" aria-label={`${currentCreatorSignal.label}: ${currentCreatorSignal.value}`}>
+            <span>{currentCreatorSignal.label}</span>
+            {currentCreatorSignal.value}
+          </p>
         </div>
         <div className="identity-stage">
           <div className="logo-halo" aria-hidden="true" />

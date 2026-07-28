@@ -173,6 +173,20 @@ test("summer coverage strip is a clear current-content entry point", async () =>
   assert.match(css, /\.coverage-strip-cta \{[\s\S]*min-height: 32px;[\s\S]*border: 1px solid rgba\(238,233,226,\.2\)/);
 });
 
+test("homepage current lane signal is centralized, editorial, and not live", async () => {
+  const response = await renderPath("/");
+  const html = await response.text();
+  const creatorSource = await readFile(new URL("../app/creator.ts", import.meta.url), "utf8");
+  const css = await readFile(new URL("../app/donghua.css", import.meta.url), "utf8");
+
+  assert.equal(response.status, 200);
+  assert.match(creatorSource, /export const currentCreatorSignal/);
+  assert.match(html, /Current lane/);
+  assert.match(html, /Summer 2026 anime, mystery donghua, revenge arcs, and character psychology\./);
+  assert.doesNotMatch(html, /updated today/i);
+  assert.match(css, /\.creator-lane-signal \{[\s\S]*width: min\(100%, 620px\);[\s\S]*font-size: 13px;[\s\S]*line-height: 1\.55/);
+});
+
 test("homepage card previews stay concise without replacing destination copy", async () => {
   const homeResponse = await renderPath("/");
   const homeHtml = await homeResponse.text();

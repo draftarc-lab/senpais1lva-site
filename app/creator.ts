@@ -20,6 +20,11 @@ export const creatorProfile = {
   focus: ["Culture", "Psychology", "Philosophy", "Recommendations", "Conversation"],
 };
 
+export const currentCreatorSignal = {
+  label: "Current lane",
+  value: "Summer 2026 anime, mystery donghua, revenge arcs, and character psychology.",
+};
+
 export const creatorStatusItems: CreatorStatusItem[] = [
   {
     label: "What I am watching",
