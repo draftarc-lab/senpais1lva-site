@@ -151,10 +151,32 @@ test("navigation and coverage controls stay accessible and scoped", async () => 
 
   assert.match(headerSource, /aria-current/);
   assert.match(headerSource, /aria-label=\{open \? "Close navigation menu" : "Open navigation menu"\}/);
-  assert.match(headerSource, /role="menuitem"/);
+  assert.doesNotMatch(headerSource, /role="menu"|role="menuitem"/);
   assert.doesNotMatch(coverageSource, /"use client"/);
   assert.match(coverageSource, /senpai-pick-badge/);
   assert.doesNotMatch(coverageSource, /coverage-progress/);
+});
+
+test("mobile launch QA guardrails keep anchors, tap targets, and motion accessible", async () => {
+  const headerSource = await readFile(new URL("../app/components/SiteHeader.tsx", import.meta.url), "utf8");
+  const footerSource = await readFile(new URL("../app/components/SiteFooter.tsx", import.meta.url), "utf8");
+  const globalCss = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const coverageCss = await readFile(new URL("../app/donghua.css", import.meta.url), "utf8");
+
+  assert.match(globalCss, /html \{ scroll-behavior: smooth; scroll-padding-top: 96px; \}/);
+  assert.match(globalCss, /#summer-coverage, #featured, #about, #partnerships, #socials \{ scroll-margin-top: 96px; \}/);
+  assert.match(globalCss, /@media \(max-width: 800px\)[\s\S]*body \{ padding-bottom: 88px; \}/);
+  assert.match(globalCss, /\.editorial-link \{[\s\S]*min-height: 44px/);
+  assert.match(globalCss, /\.media-kit-link \{[\s\S]*min-height: 44px/);
+  assert.match(globalCss, /\.footer-socials a \{ width: 44px; height: 44px;/);
+  assert.match(coverageCss, /\.donghua-card-cta \{[\s\S]*min-height: 44px/);
+  assert.match(coverageCss, /\.coverage-stream-link \{[\s\S]*min-height: 44px/);
+  assert.match(globalCss, /@media \(prefers-reduced-motion: reduce\)[\s\S]*scroll-behavior: auto[\s\S]*animation: none/);
+  assert.match(headerSource, /aria-controls="mobile-navigation"/);
+  assert.match(footerSource, /aria-label="Open SenpaiS1lva on YouTube"/);
+  assert.match(footerSource, /aria-label="Open SenpaiS1lva on TikTok"/);
+  assert.match(footerSource, /aria-label="Open SenpaiS1lva on Instagram"/);
+  assert.match(footerSource, /aria-label="Open SenpaiS1lva on Facebook"/);
 });
 
 test("homepage hero logo hierarchy stays restrained and scoped", async () => {
