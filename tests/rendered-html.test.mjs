@@ -35,7 +35,10 @@ test("renders phase 3 creator authority on the homepage", async () => {
   assert.match(html, /What I am watching/);
   assert.match(html, /Thoughtful anime talk without losing the fun/);
   assert.match(html, /Read the full About/);
+  assert.match(html, /View media kit/);
   assert.match(html, /Reaction clips that open the conversation/);
+  assert.doesNotMatch(html, /creator-trust-strip/);
+  assert.doesNotMatch(html, /audience-section/);
 });
 
 test("renders route-specific metadata and structured data", async () => {
@@ -205,23 +208,26 @@ test("homepage fan pathways use conversational intent copy and clear destination
   assert.match(globalCss, /\.fan-card:hover, \.fan-card:focus-visible \{[\s\S]*border-color: rgba\(237,0,102,\.62\)/);
 });
 
-test("homepage introduces Silva real photo before the first major content grid", async () => {
+test("homepage hierarchy keeps recommendations early and consolidates creator proof", async () => {
   const response = await renderPath("/");
   const html = await response.text();
   const pageSource = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   const css = await readFile(new URL("../app/donghua.css", import.meta.url), "utf8");
 
   assert.equal(response.status, 200);
-  assert.ok(html.indexOf("creator-trust-strip") > -1);
-  assert.ok(html.indexOf("creator-trust-strip") < html.indexOf("id=\"summer-coverage\""));
-  assert.match(html, /A real voice behind the anime talk/);
-  assert.match(html, /href="\/about"[\s\S]*Meet Silva/);
-  assert.match(pageSource, /className="creator-trust-photo" src="\/about-silva\.webp"/);
-  assert.match(pageSource, /width=\{112\} height=\{112\}/);
-  assert.match(pageSource, /loading="lazy"/);
+  assert.ok(html.indexOf("id=\"summer-coverage\"") < html.indexOf("class=\"fan-section"));
+  assert.ok(html.indexOf("class=\"fan-section") < html.indexOf("id=\"featured\""));
+  assert.ok(html.indexOf("id=\"featured\"") < html.indexOf("id=\"about\""));
+  assert.ok(html.indexOf("id=\"about\"") < html.indexOf("notes-teaser"));
+  assert.ok(html.indexOf("notes-teaser") < html.indexOf("id=\"partnerships\""));
+  assert.ok(html.indexOf("id=\"partnerships\"") < html.indexOf("id=\"socials\""));
+  assert.match(html, /href="\/about"[\s\S]*Read the full About/);
+  assert.match(html, /Combined audience[\s\S]*16\.5K[\s\S]*Facebook[\s\S]*Instagram[\s\S]*TikTok[\s\S]*YouTube/);
+  assert.doesNotMatch(pageSource, /creator-trust-strip/);
+  assert.doesNotMatch(pageSource, /className="audience-section/);
   assert.match(pageSource, /alt="SenpaiS1lva smiling at a restaurant"/);
-  assert.match(css, /\.creator-trust-strip \{[\s\S]*grid-template-columns: auto minmax\(0, 1fr\) auto/);
-  assert.match(css, /@media \(max-width: 800px\)[\s\S]*\.creator-trust-strip \{ grid-template-columns: auto minmax\(0, 1fr\)/);
+  assert.match(css, /\.creator-proof \{[\s\S]*grid-template-columns: minmax\(150px, \.62fr\) minmax\(0, 1\.38fr\)/);
+  assert.match(css, /@media \(max-width: 800px\)[\s\S]*\.creator-proof \{ grid-template-columns: 1fr; \}/);
 });
 
 test("homepage anime attention board uses the current five recommendations", async () => {

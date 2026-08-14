@@ -108,16 +108,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="creator-trust-strip container reveal-section" aria-labelledby="creator-trust-heading">
-        <Image className="creator-trust-photo" src="/about-silva.webp" alt="SenpaiS1lva smiling at a restaurant" width={112} height={112} sizes="112px" loading="lazy" />
-        <div>
-          <p className="eyebrow">Meet the creator</p>
-          <h2 id="creator-trust-heading">A real voice behind the anime talk.</h2>
-          <p>Silva is the creator and host behind SenpaiS1lva, covering anime, donghua, culture, psychology, philosophy, and the shows worth arguing about.</p>
-        </div>
-        <Link className="editorial-link" href="/about">Meet Silva <FiArrowUpRight aria-hidden="true" /></Link>
-      </section>
-
       <section id="summer-coverage" className="donghua-section container reveal-section" aria-labelledby="summer-coverage-heading">
         <div className="section-heading">
           <div>
@@ -149,34 +139,6 @@ export default function Home() {
         <FeaturedVideoGrid videos={selectedWorkVideos} limit={3} variant="home" />
       </section>
 
-      <section className="audience-section container reveal-section" aria-labelledby="audience-heading">
-        <div className="audience-intro">
-          <p className="eyebrow">Audience snapshot</p>
-          <h2 id="audience-heading">Thoughtful anime creator with proof.</h2>
-          <p>{audienceSnapshot.headline}</p>
-          <div className="audience-meta">
-            <span>{audienceSnapshot.verifiedLabel}</span>
-            <span>{audienceSnapshot.lastUpdated}</span>
-          </div>
-          <a className="editorial-link" href={mediaKitUrl} target="_blank" rel="noopener noreferrer">View media kit <FiArrowUpRight aria-hidden="true" /></a>
-        </div>
-        <div className="audience-grid" aria-label="Verified SenpaiS1lva audience numbers">
-          <article className="audience-card audience-card--total" aria-label={audienceSnapshot.total.ariaLabel}>
-            <span>{audienceSnapshot.total.label}</span>
-            <strong>{audienceSnapshot.total.value}</strong>
-            <small>verified followers</small>
-          </article>
-          <div className="audience-platform-grid" aria-label="Verified platform follower breakdown">
-            {audienceSnapshot.platforms.map((metric) => (
-            <article className="audience-card audience-card--platform" key={metric.label} aria-label={metric.ariaLabel}>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-            </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="about" className="start-section container reveal-section">
         <div className="start-visual">
           <Image className="about-photo" src="/about-silva.webp" alt="SenpaiS1lva smiling at a restaurant" fill sizes="(max-width: 800px) 100vw, 50vw" unoptimized />
@@ -199,8 +161,28 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <div className="creator-proof" aria-label="Verified SenpaiS1lva audience numbers">
+            <div className="creator-proof-intro">
+              <span>{audienceSnapshot.total.label}</span>
+              <strong>{audienceSnapshot.total.value}</strong>
+              <small>verified followers</small>
+            </div>
+            <div className="creator-proof-platforms" aria-label="Verified platform follower breakdown">
+              {audienceSnapshot.platforms.map((metric) => (
+                <span key={metric.label} aria-label={metric.ariaLabel}>
+                  <strong>{metric.value}</strong>
+                  {metric.label}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="audience-meta creator-proof-meta">
+            <span>{audienceSnapshot.verifiedLabel}</span>
+            <span>{audienceSnapshot.lastUpdated}</span>
+          </div>
           <div className="start-links">
             <Link className="editorial-link" href="/about">Read the full About <FiArrowUpRight aria-hidden="true" /></Link>
+            <a className="editorial-link editorial-link--quiet" href={mediaKitUrl} target="_blank" rel="noopener noreferrer">View media kit <FiArrowUpRight aria-hidden="true" /></a>
             <a className="editorial-link editorial-link--quiet" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Explore YouTube <FiArrowUpRight aria-hidden="true" /></a>
           </div>
         </div>
