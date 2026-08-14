@@ -10,7 +10,7 @@ import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 import { coverageIntro, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
 import { creatorProfile, currentCreatorSignal, featuredCreatorStatusItems } from "./creator";
-import { pageMetadata } from "./seo";
+import { pageMetadata, socialProfileUrls } from "./seo";
 import { featuredNotes } from "./senpai-notes/data";
 
 export const metadata: Metadata = pageMetadata({
@@ -22,10 +22,10 @@ export const metadata: Metadata = pageMetadata({
 const partnershipEmail = "animejay89@gmail.com";
 
 const socialLinks = [
-  { name: "YouTube", handle: "@SenpaiS1lva", description: "Longer reactions, recommendations, and conversations that need room to breathe.", href: "https://m.youtube.com/@SenpaiS1lva", icon: FaYoutube, priority: true },
-  { name: "TikTok", handle: "@senpais1lva", description: "Sharp anime takes, quick reactions, and the moments we need to talk about right now.", href: "https://www.tiktok.com/@senpais1lva", icon: FaTiktok, priority: true },
-  { name: "Instagram", handle: "@senpais1lva", description: "Carousels, artwork, and conversations built to keep going in the comments.", href: "https://www.instagram.com/senpais1lva?igsh=Z3YzMnU5bXFyNHdv&utm_source=qr", icon: FaInstagram, priority: false },
-  { name: "Facebook", handle: "SenpaiS1lva", description: "Clips, community discussion, and a little organized anime chaos.", href: "https://www.facebook.com/share/17zHw4CU8B/?mibextid=wwXIfr", icon: FaFacebookF, priority: false },
+  { name: "YouTube", handle: "@SenpaiS1lva", description: "Longer reactions, recommendations, and conversations that need room to breathe.", href: socialProfileUrls.youtube, icon: FaYoutube, priority: true },
+  { name: "TikTok", handle: "@senpais1lva", description: "Sharp anime takes, quick reactions, and the moments we need to talk about right now.", href: socialProfileUrls.tiktok, icon: FaTiktok, priority: true },
+  { name: "Instagram", handle: "@senpais1lva", description: "Carousels, artwork, and conversations built to keep going in the comments.", href: socialProfileUrls.instagram, icon: FaInstagram, priority: false },
+  { name: "Facebook", handle: "SenpaiS1lva", description: "Clips, community discussion, and a little organized anime chaos.", href: socialProfileUrls.facebook, icon: FaFacebookF, priority: false },
 ];
 
 const topics = ["Anime", "Donghua", "Philosophy", "Culture"];
@@ -74,7 +74,7 @@ export default function Home() {
           <h1>Anime has<br /><em>more to say.</em></h1>
           <p className="hero-intro">Welcome to the world of <strong>SenpaiS1lva</strong>, where anime, donghua, and the ideas hiding underneath them get the conversation they deserve.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer" aria-label="Watch SenpaiS1lva on YouTube">Watch on YouTube <FiPlay aria-hidden="true" /></a>
+            <a className="primary-button" href={socialProfileUrls.youtube} target="_blank" rel="noopener noreferrer" aria-label="Watch SenpaiS1lva on YouTube">Watch on YouTube <FiPlay aria-hidden="true" /></a>
             <a className="text-link hero-secondary-link" href="#about" aria-label="Jump to the Meet Silva section">Meet Silva <span aria-hidden="true">↓</span></a>
           </div>
           <Link className="current-covering-strip" href="/watch#summer-coverage" aria-label="Explore Summer 2026 anime and donghua coverage on the Watch page">
@@ -182,7 +182,7 @@ export default function Home() {
           <div className="start-links">
             <Link className="editorial-link" href="/about">Read the full About <FiArrowUpRight aria-hidden="true" /></Link>
             <a className="editorial-link editorial-link--quiet" href={mediaKitUrl} target="_blank" rel="noopener noreferrer">View media kit <FiArrowUpRight aria-hidden="true" /></a>
-            <a className="editorial-link editorial-link--quiet" href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer">Explore YouTube <FiArrowUpRight aria-hidden="true" /></a>
+            <a className="editorial-link editorial-link--quiet" href={socialProfileUrls.youtube} target="_blank" rel="noopener noreferrer">Explore YouTube <FiArrowUpRight aria-hidden="true" /></a>
           </div>
         </div>
       </section>
