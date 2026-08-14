@@ -14,6 +14,7 @@ export type CoverageEntry = {
   description: string;
   homepageDescription?: string;
   status: string;
+  pickLabel?: string;
   currentEpisode?: number;
   totalEpisodes?: number;
   lastUpdated: string;
@@ -43,75 +44,103 @@ export type FeaturedVideo = {
   relatedRecommendationSlug?: string;
 };
 
-export const coverageSeason = "Summer 2026 anime & donghua";
-export const coverageLastUpdated = "Last updated July 2026";
-
-export const creatorActivitySignals = [
-  { label: "Season focus", value: "Summer 2026 anime & donghua" },
-  { label: "Coverage modes", value: "Recommendations, reactions, culture reads, and deeper episode talk" },
-  { label: "Discovery lane", value: "Helping anime fans find story-forward donghua without the search headache" },
-  { label: "Best next step", value: "Start with Watch, then use Recommendations when you need a taste-match" },
-];
+export const coverageSeason = "What’s Got My Attention";
+export const coverageLastUpdated = "Last updated August 2026";
+export const coverageIntro =
+  "Five shows I’m having the most fun with right now. Different genres, completely different vibes, and all worth putting on your radar.";
 
 export const summerCoverage: CoverageEntry[] = [
   {
-    slug: "the-chosen-one",
-    canonicalTitle: "The Chosen One",
-    alternateTitles: ["The Last Dynasty", "Gu Wei Nan Ting", "谷围南亭"],
-    contentType: "donghua",
-    genres: ["Supernatural", "Mystery", "Horror", "Folklore"],
+    slug: "tomb-raider-king",
+    canonicalTitle: "Tomb Raider King",
+    alternateTitles: [],
+    contentType: "anime",
+    genres: ["Action", "Fantasy", "Manhwa"],
     description:
-      "Folkloric suspense, supernatural mystery, and old forces waking up in a place nobody should have entered.",
-    homepageDescription:
-      "This is folklore, dread, and supernatural mystery colliding as old forces wake in a place nobody should have entered.",
-    status: "Actively covering",
-    lastUpdated: "July 2026",
-    coverageUrl: "/watch#the-chosen-one",
-    streaming: {
-      label: "Watch on WeTV",
-      url: "https://wetv.vip/en/play/j5ygsbp73vk24k5/o4101ibnvkw-EP01%3A_The_Chosen_One",
-    },
-    featured: true,
-    cta: "Watch my coverage",
-    relatedRecommendationSlug: "the-chosen-one",
-  },
-  {
-    slug: "secrets-of-the-rivers",
-    canonicalTitle: "Secrets of the Rivers",
-    alternateTitles: ["San Xian Lun Hui", "三线轮洄", "Three-Line Reincarnation"],
-    contentType: "donghua",
-    genres: ["Mystery", "Adventure", "Suspense"],
-    description:
-      "A mystery-driven donghua with chase scenes, hidden identities, strange family tension, and the kind of episode turns that make reaction content fun.",
-    homepageDescription:
-      "A chase-heavy mystery where hidden identities, family tension, and sharp episode turns make the reactions easy to find.",
-    status: "Actively covering",
-    lastUpdated: "July 2026",
-    coverageUrl: "/watch#secrets-of-the-rivers",
-    featured: true,
-    cta: "Watch my coverage",
-    relatedRecommendationSlug: "secrets-of-the-rivers",
-  },
-  {
-    slug: "crowned-in-a-hundred-days",
-    canonicalTitle: "Crowned in a Hundred Days",
-    alternateTitles: ["Crowned in 100 Days", "Bai Ri Cheng Wang"],
-    contentType: "donghua",
-    genres: ["Action", "Adventure", "Fantasy", "Crunchyroll", "Currently Airing"],
-    description:
-      "A currently running Crunchyroll donghua about revenge, royal collapse, impostors, and a 100-day countdown to reclaim a throne.",
-    homepageDescription:
-      "A Crunchyroll donghua about revenge, impostors, royal collapse, and a countdown that keeps the throne barely in reach.",
-    status: "Currently airing; actively covering",
-    lastUpdated: "July 2026",
-    coverageUrl: "/watch#crowned-in-a-hundred-days",
+      "The Solo Leveling comparisons are obvious, but I might actually like Jooheon more. OP is fun. OP with personality is better.",
+    status: "Recommended now",
+    pickLabel: "Senpai Pick",
+    lastUpdated: "August 2026",
+    coverageUrl: "/watch#tomb-raider-king",
     streaming: {
       label: "Watch on Crunchyroll",
-      url: "https://www.crunchyroll.com/series/GT00379214/crowned-in-a-hundred-days",
+      url: "https://www.crunchyroll.com/",
     },
     featured: true,
-    cta: "Start here",
-    relatedRecommendationSlug: "crowned-in-a-hundred-days",
+    cta: "Why I recommend it",
+    relatedRecommendationSlug: "tomb-raider-king",
+  },
+  {
+    slug: "heroine-saint-all-works-maid",
+    canonicalTitle: "Heroine? Saint? No, I’m an All-Works Maid (And Proud of It)!",
+    alternateTitles: [],
+    contentType: "anime",
+    genres: ["Romance", "Comedy", "Fantasy"],
+    description:
+      "Melody might be destined to save the world, but she’d honestly rather perfect her maid work. Funny, charming, and one of my favorite romances this season.",
+    status: "Recommended now",
+    lastUpdated: "August 2026",
+    coverageUrl: "/watch#heroine-saint-all-works-maid",
+    streaming: {
+      label: "Watch on Crunchyroll",
+      url: "https://www.crunchyroll.com/",
+    },
+    cta: "Why I recommend it",
+    relatedRecommendationSlug: "heroine-saint-all-works-maid",
+  },
+  {
+    slug: "exiled-heavy-knight",
+    canonicalTitle: "The Exiled Heavy Knight Knows How to Game the System",
+    alternateTitles: [],
+    contentType: "anime",
+    genres: ["Fantasy", "Action", "Game System"],
+    description:
+      "Everybody thinks Heavy Knight is a trash class. Elma basically responds, “Nah, your build just sucks.” That alone sold me.",
+    status: "Recommended now",
+    lastUpdated: "August 2026",
+    coverageUrl: "/watch#exiled-heavy-knight",
+    streaming: {
+      label: "Watch on Crunchyroll",
+      url: "https://www.crunchyroll.com/",
+    },
+    cta: "Why I recommend it",
+    relatedRecommendationSlug: "exiled-heavy-knight",
+  },
+  {
+    slug: "the-ghost-in-the-shell-2026",
+    canonicalTitle: "THE GHOST IN THE SHELL",
+    alternateTitles: ["2026 Prime Video series"],
+    contentType: "anime",
+    genres: ["Sci-Fi", "Cyberpunk", "Thriller"],
+    description:
+      "Cyberpunk is at its best when the technology actually raises uncomfortable questions. Ghost in the Shell still understands that.",
+    status: "Recommended now",
+    lastUpdated: "August 2026",
+    coverageUrl: "/watch#the-ghost-in-the-shell-2026",
+    streaming: {
+      label: "Watch on Prime Video",
+      url: "https://www.primevideo.com/",
+    },
+    cta: "Why I recommend it",
+    relatedRecommendationSlug: "the-ghost-in-the-shell-2026",
+  },
+  {
+    slug: "the-cat-and-the-dragon",
+    canonicalTitle: "The Cat and the Dragon",
+    alternateTitles: [],
+    contentType: "anime",
+    genres: ["Fantasy", "Adventure", "Wholesome"],
+    description:
+      "A dragon raised by magical cats should not have this much worldbuilding and heart, but somehow it absolutely does.",
+    status: "Recommended now",
+    lastUpdated: "August 2026",
+    coverageUrl: "/watch#the-cat-and-the-dragon",
+    streaming: {
+      label: "Watch on Crunchyroll",
+      url: "https://www.crunchyroll.com/",
+    },
+    cta: "Why I recommend it",
+    relatedRecommendationSlug: "the-cat-and-the-dragon",
   },
 ];
 
@@ -169,17 +198,17 @@ export const featuredVideos: FeaturedVideo[] = [
   },
   {
     slug: "summer-donghua-coverage",
-    title: "Summer 2026 donghua coverage board",
+    title: "What’s Got My Attention",
     platform: "Site",
     url: "/watch#summer-coverage",
     thumbnail: "/cityscape.jpeg",
-    category: "Donghua coverage",
+    category: "Recommendations",
     animeOrDonghuaTitle: currentlyCoveringLine,
     description:
-      "Follow the active watch board for the donghua Silva is covering, including alternate titles so you can actually find the shows.",
+      "Follow the five anime recommendations Silva is having the most fun with right now.",
     featured: true,
     cta: "See my coverage",
-    relatedRecommendationSlug: "the-chosen-one",
+    relatedRecommendationSlug: "tomb-raider-king",
   },
   {
     slug: "recommendation-map",

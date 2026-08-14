@@ -128,7 +128,8 @@ test("navigation and coverage controls stay accessible and scoped", async () => 
   assert.match(headerSource, /aria-label=\{open \? "Close navigation menu" : "Open navigation menu"\}/);
   assert.match(headerSource, /role="menuitem"/);
   assert.doesNotMatch(coverageSource, /"use client"/);
-  assert.match(coverageSource, /verified episode progress/);
+  assert.match(coverageSource, /senpai-pick-badge/);
+  assert.doesNotMatch(coverageSource, /coverage-progress/);
 });
 
 test("homepage hero logo hierarchy stays restrained and scoped", async () => {
@@ -166,7 +167,7 @@ test("summer coverage strip is a clear current-content entry point", async () =>
   assert.equal(watchResponse.status, 200);
   assert.match(html, /href="\/watch#summer-coverage"/);
   assert.match(html, /Start with what I’m covering now\./);
-  assert.match(html, /Summer 2026 anime &amp; donghua/);
+  assert.match(html, /Tomb Raider King/);
   assert.match(html, /Explore summer coverage/);
   assert.match(watchHtml, /id="summer-coverage"/);
   assert.match(css, /\.current-covering-strip \{[\s\S]*grid-template-columns: minmax\(0, 1fr\) auto;[\s\S]*border: 1px solid rgba\(238,233,226,\.24\)/);
@@ -182,7 +183,7 @@ test("homepage current lane signal is centralized, editorial, and not live", asy
   assert.equal(response.status, 200);
   assert.match(creatorSource, /export const currentCreatorSignal/);
   assert.match(html, /Current lane/);
-  assert.match(html, /Summer 2026 anime, mystery donghua, revenge arcs, and character psychology\./);
+  assert.match(html, /Romance, cyberpunk, manhwa power plays, fantasy adventure, and comfort-watch worldbuilding\./);
   assert.doesNotMatch(html, /updated today/i);
   assert.match(css, /\.creator-lane-signal \{[\s\S]*width: min\(100%, 620px\);[\s\S]*font-size: 13px;[\s\S]*line-height: 1\.55/);
 });
@@ -223,7 +224,7 @@ test("homepage introduces Silva real photo before the first major content grid",
   assert.match(css, /@media \(max-width: 800px\)[\s\S]*\.creator-trust-strip \{ grid-template-columns: auto minmax\(0, 1fr\)/);
 });
 
-test("homepage card previews stay concise without replacing destination copy", async () => {
+test("homepage anime attention board uses the current five recommendations", async () => {
   const homeResponse = await renderPath("/");
   const homeHtml = await homeResponse.text();
   const watchResponse = await renderPath("/watch");
@@ -231,12 +232,25 @@ test("homepage card previews stay concise without replacing destination copy", a
 
   assert.equal(homeResponse.status, 200);
   assert.equal(watchResponse.status, 200);
-  assert.match(homeHtml, /This is folklore, dread, and supernatural mystery colliding as old forces wake/);
-  assert.match(homeHtml, /A chase-heavy mystery where hidden identities, family tension, and sharp episode turns/);
+  assert.match(homeHtml, /What’s Got My Attention/);
+  assert.match(homeHtml, /Five shows I’m having the most fun with right now/);
+  assert.match(homeHtml, /Heroine\? Saint\? No, I(?:’|&#x27;|&apos;)m an All-Works Maid \(And Proud of It\)!/);
+  assert.match(homeHtml, /The Exiled Heavy Knight Knows How to Game the System/);
+  assert.match(homeHtml, /THE GHOST IN THE SHELL/);
+  assert.match(homeHtml, /Tomb Raider King/);
+  assert.match(homeHtml, /The Cat and the Dragon/);
+  assert.match(homeHtml, /Senpai Pick/);
+  assert.match(homeHtml, /The Solo Leveling comparisons are obvious, but I might actually like Jooheon more/);
+  assert.match(homeHtml, /Watch on Crunchyroll/);
+  assert.match(watchHtml, /Watch on Prime Video/);
+  assert.doesNotMatch(homeHtml, /The Chosen One/);
+  assert.doesNotMatch(homeHtml, /Secrets of the Rivers/);
+  assert.doesNotMatch(homeHtml, /Crowned in a Hundred Days/);
+  assert.doesNotMatch(homeHtml, /Season focus|Coverage modes|Discovery lane|Best next step/);
+  assert.ok(homeHtml.indexOf("Tomb Raider King") < homeHtml.indexOf("Heroine? Saint?"));
   assert.match(homeHtml, /Start here first for longer breakdowns, fresh reactions, and current coverage/);
   assert.match(homeHtml, /School works because it gives anime hierarchy, pressure, belonging/);
   assert.match(homeHtml, /Open mood-first anime and donghua picks when you want a real recommendation/);
-  assert.match(watchHtml, /A mystery-driven donghua with chase scenes, hidden identities, strange family tension/);
   assert.match(watchHtml, /The cleanest place to catch longer breakdowns, fresh reactions, and current video coverage/);
 });
 

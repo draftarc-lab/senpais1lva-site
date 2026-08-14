@@ -8,7 +8,7 @@ import CoverageGrid from "./components/CoverageGrid";
 import FeaturedVideoGrid from "./components/FeaturedVideoGrid";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
-import { coverageLastUpdated, creatorActivitySignals, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
+import { coverageIntro, coverageLastUpdated, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
 import { creatorProfile, currentCreatorSignal, featuredCreatorStatusItems } from "./creator";
 import { pageMetadata } from "./seo";
 import { featuredNotes } from "./senpai-notes/data";
@@ -121,18 +121,10 @@ export default function Home() {
       <section id="summer-coverage" className="donghua-section container reveal-section" aria-labelledby="summer-coverage-heading">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Currently covering · Summer 2026</p>
-            <h2 id="summer-coverage-heading">Summer 2026 Anime & Donghua</h2>
+            <p className="eyebrow">Anime recommendations</p>
+            <h2 id="summer-coverage-heading">What’s Got My Attention</h2>
           </div>
-          <p className="section-note">Not just recommendations. This is the active watch board for the anime and Chinese animated series I’m watching, reacting to, and helping people discover.<br /><span>{coverageLastUpdated}</span></p>
-        </div>
-        <div className="activity-signal-grid" aria-label="Current creator activity signals">
-          {creatorActivitySignals.map((item) => (
-            <article key={item.label}>
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-            </article>
-          ))}
+          <p className="section-note">{coverageIntro}<br /><span>{coverageLastUpdated}</span></p>
         </div>
         <CoverageGrid entries={summerCoverage} />
       </section>
