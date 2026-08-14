@@ -61,10 +61,10 @@
 .donghua-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .donghua-tags span { padding: 6px 8px; border: 1px solid rgba(238,233,226,.13); color: #8f878a; font-size: 8px; letter-spacing: .11em; text-transform: uppercase; }
 .coverage-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: auto; padding-top: 24px; }
-.donghua-card-cta { width: fit-content; display: inline-flex; align-items: center; gap: 9px; margin-top: 24px; padding-bottom: 7px; border-bottom: 1px solid rgba(237,0,102,.75); color: #d7cfd1; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.donghua-card-cta { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; gap: 9px; margin-top: 24px; padding-bottom: 7px; border-bottom: 1px solid rgba(237,0,102,.75); color: #d7cfd1; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .donghua-card-cta svg { color: var(--signal); }
 .coverage-card-actions .donghua-card-cta { margin-top: 0; }
-.coverage-stream-link { width: fit-content; display: inline-flex; align-items: center; gap: 8px; padding-bottom: 7px; border-bottom: 1px solid rgba(238,233,226,.25); color: #9e9699; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.coverage-stream-link { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding-bottom: 7px; border-bottom: 1px solid rgba(238,233,226,.25); color: #9e9699; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .coverage-stream-link:hover, .coverage-stream-link:focus-visible { color: var(--paper); border-color: rgba(237,0,102,.75); }
 .coverage-updated { display: block; margin-top: 16px; color: #746c70; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; }
 
