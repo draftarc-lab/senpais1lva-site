@@ -8,7 +8,7 @@ import PageHero from "../components/PageHero";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
 import { coverageIntro, coverageSeason, featuredVideos, summerCoverage } from "../coverage";
-import { pageMetadata } from "../seo";
+import { pageMetadata, socialProfileUrls } from "../seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Watch",
@@ -24,6 +24,6 @@ export default function WatchPage() {
     <section id="summer-coverage" className="container watch-donghua-section"><div className="page-section-heading"><div><p className="eyebrow">Anime recommendations</p><h2>{coverageSeason}</h2></div><p>{coverageIntro}</p></div>
       <CoverageGrid entries={summerCoverage} variant="watch" />
     </section>
-    <section className="container platform-section"><p className="eyebrow">Choose your format</p><div className="platform-grid"><a href="https://m.youtube.com/@SenpaiS1lva" target="_blank" rel="noopener noreferrer"><FaYoutube /><strong>YouTube</strong><span>Longer conversations</span></a><a href="https://www.tiktok.com/@senpais1lva" target="_blank" rel="noopener noreferrer"><FaTiktok /><strong>TikTok</strong><span>Fast reactions and takes</span></a><a href="https://www.instagram.com/senpais1lva" target="_blank" rel="noopener noreferrer"><FaInstagram /><strong>Instagram</strong><span>Reels, carousels, and art</span></a></div></section>
+    <section className="container platform-section"><p className="eyebrow">Choose your format</p><div className="platform-grid"><a href={socialProfileUrls.youtube} target="_blank" rel="noopener noreferrer"><FaYoutube /><strong>YouTube</strong><span>Longer conversations</span></a><a href={socialProfileUrls.tiktok} target="_blank" rel="noopener noreferrer"><FaTiktok /><strong>TikTok</strong><span>Fast reactions and takes</span></a><a href={socialProfileUrls.instagram} target="_blank" rel="noopener noreferrer"><FaInstagram /><strong>Instagram</strong><span>Reels, carousels, and art</span></a></div></section>
     <section className="page-cta"><div className="container"><p>Looking for the deeper written side?</p><Link className="primary-button" href="/senpai-notes">Read Senpai Notes <FiArrowUpRight /></Link></div></section><SiteFooter /></main>;
 }

@@ -56,7 +56,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
     datePublished: note.publishDate,
     dateModified: note.updatedDate ?? note.publishDate,
     author: { "@id": `${siteUrl}/#person` },
-    publisher: { "@id": `${siteUrl}/#organization` },
+    publisher: { "@id": `${siteUrl}/#person` },
     mainEntityOfPage: `${siteUrl}/senpai-notes/${note.slug}`,
   };
   const breadcrumbs = breadcrumbJsonLd([
