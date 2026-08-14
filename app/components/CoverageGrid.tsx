@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { CoverageContentType, CoverageEntry } from "../coverage";
 
@@ -13,41 +12,22 @@ const contentTypeLabels: Record<CoverageContentType, string> = {
   donghua: "Donghua",
 };
 
-function hasVerifiedProgress(entry: CoverageEntry): entry is CoverageEntry & { currentEpisode: number; totalEpisodes: number } {
-  return typeof entry.currentEpisode === "number" && typeof entry.totalEpisodes === "number";
-}
-
 export default function CoverageGrid({ entries, variant = "home" }: CoverageGridProps) {
   return (
       <div className={variant === "watch" ? "watch-donghua-grid" : "donghua-grid"}>
-        {entries.map((entry, index) => (
-          <article className={variant === "watch" ? "watch-donghua-card" : "donghua-card"} id={entry.slug} key={entry.slug}>
-            <div className="donghua-card-top">
-              <span>0{index + 1}</span>
-              <small>{entry.alternateTitles.join(" · ")}</small>
+        {entries.map((entry) => (
+          <article className={`${variant === "watch" ? "watch-donghua-card" : "donghua-card"} ${entry.featured ? "donghua-card--featured" : ""}`} id={entry.slug} key={entry.slug}>
+            <div className="coverage-title-row">
+              <h3>{entry.canonicalTitle}</h3>
+              {entry.pickLabel && <span className="senpai-pick-badge">{entry.pickLabel}</span>}
             </div>
-            <div className="coverage-type-row">
-              <span>{contentTypeLabels[entry.contentType]}</span>
-              <span>{entry.status}</span>
-            </div>
-            <h3>{entry.canonicalTitle}</h3>
-            <p>{variant === "home" ? entry.homepageDescription ?? entry.description : entry.description}</p>
-            {hasVerifiedProgress(entry) ? (
-              <div className="coverage-progress" aria-label={`${entry.canonicalTitle} verified episode progress`}>
-                <span>
-                  Episode {entry.currentEpisode} of {entry.totalEpisodes}
-                </span>
-                <i style={{ "--progress": `${Math.round((entry.currentEpisode / entry.totalEpisodes) * 100)}%` } as CSSProperties} />
-              </div>
-            ) : (
-              <p className="coverage-status">{entry.status}</p>
-            )}
-            <div className="donghua-tags">
+            <div className="donghua-tags" aria-label={`${entry.canonicalTitle} genres`}>
               {entry.genres.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
               <span>{contentTypeLabels[entry.contentType]}</span>
             </div>
+            <p>{variant === "home" ? entry.homepageDescription ?? entry.description : entry.description}</p>
             <div className="coverage-card-actions">
               <Link className="donghua-card-cta" href={entry.coverageUrl}>
                 {entry.cta} <FiArrowUpRight aria-hidden="true" />

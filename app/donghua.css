@@ -45,20 +45,19 @@
 .coverage-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .coverage-filters button { min-height: 38px; padding: 0 13px; border: 1px solid var(--line); background: rgba(8,8,10,.8); color: #999194; font: 10px var(--utility); letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
 .coverage-filters button:hover, .coverage-filters button:focus-visible, .coverage-filters button.active { border-color: var(--signal); background: rgba(237,0,102,.1); color: var(--paper); }
-.donghua-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
-.donghua-card, .watch-donghua-card { min-height: 430px; display: flex; flex-direction: column; position: relative; overflow: hidden; padding: 25px; border: 1px solid var(--line); background: linear-gradient(145deg, #0e0c0f, #070708 70%); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.donghua-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+.donghua-card, .watch-donghua-card { min-height: 360px; display: flex; flex-direction: column; position: relative; overflow: hidden; padding: 25px; border: 1px solid var(--line); background: linear-gradient(145deg, #0e0c0f, #070708 70%); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
 .donghua-card::before, .watch-donghua-card::before { content: ""; position: absolute; inset: 0; opacity: .18; background: radial-gradient(circle at 20% 15%, rgba(237,0,102,.3), transparent 32%), repeating-linear-gradient(90deg, transparent 0 74px, rgba(238,233,226,.04) 75px); pointer-events: none; }
-.donghua-card::after, .watch-donghua-card::after { content: ""; position: absolute; left: 25px; right: 25px; top: 72px; height: 1px; background: linear-gradient(90deg, var(--signal), transparent); opacity: .65; }
+.donghua-card::after, .watch-donghua-card::after { content: ""; position: absolute; left: 25px; right: 25px; top: 25px; height: 1px; background: linear-gradient(90deg, var(--signal), transparent); opacity: .65; }
 .donghua-card:hover, .donghua-card:focus-within, .watch-donghua-card:hover { transform: translateY(-6px); border-color: rgba(237,0,102,.64); box-shadow: 0 24px 55px rgba(0,0,0,.38), 0 0 24px rgba(237,0,102,.07); }
 .donghua-card > *, .watch-donghua-card > * { position: relative; z-index: 2; }
-.donghua-card-top { display: flex; justify-content: space-between; gap: 18px; min-height: 76px; }
-.donghua-card-top > span, .watch-donghua-card > span { color: var(--signal); font-size: 10px; letter-spacing: .18em; }
-.donghua-card-top small, .watch-donghua-card small { max-width: 250px; color: #837b7f; font-size: 8px; letter-spacing: .1em; line-height: 1.55; text-align: right; text-transform: uppercase; }
-.coverage-type-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.coverage-type-row span { padding: 6px 8px; border: 1px solid rgba(238,233,226,.12); color: #8f878a; font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
-.coverage-type-row span:first-child { border-color: rgba(237,0,102,.45); color: #d9d1d3; }
-.donghua-card h3, .watch-donghua-card h3 { margin: 36px 0 14px; font-family: var(--display); font-size: clamp(31px, 3vw, 43px); font-weight: 400; line-height: .96; letter-spacing: -.04em; }
-.donghua-card p, .watch-donghua-card p { color: #aaa2a5; font-family: "Iowan Old Style", Georgia, serif; font-size: 14px; line-height: 1.62; }
+.donghua-card--featured { grid-column: 1 / -1; min-height: 390px; padding: 30px; background: linear-gradient(145deg, rgba(237,0,102,.12), #080708 68%); border-color: rgba(237,0,102,.48); }
+.coverage-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-top: 28px; }
+.donghua-card h3, .watch-donghua-card h3 { min-width: 0; margin: 0; overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(31px, 3vw, 43px); font-weight: 400; line-height: .96; letter-spacing: -.04em; }
+.donghua-card--featured h3 { font-size: clamp(42px, 4.6vw, 68px); }
+.senpai-pick-badge { flex: 0 0 auto; margin-top: 4px; padding: 7px 9px; border: 1px solid rgba(237,0,102,.58); color: #f4d7e2; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.donghua-card p, .watch-donghua-card p { color: #c9c1c4; font-family: "Iowan Old Style", Georgia, serif; font-size: 16px; line-height: 1.66; }
+.donghua-card--featured p { max-width: 760px; font-size: 20px; line-height: 1.62; }
 .coverage-status { margin: 0; color: #8f878a !important; font-size: 12px !important; font-style: italic; }
 .coverage-progress { display: grid; gap: 8px; margin-top: 4px; }
 .coverage-progress span { color: #958d90; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
@@ -75,7 +74,7 @@
 .coverage-updated { display: block; margin-top: 16px; color: #746c70; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; }
 
 .watch-donghua-section { padding: 0 0 86px; }
-.watch-donghua-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
+.watch-donghua-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
 .watch-donghua-card { min-height: 360px; }
 .watch-donghua-card small { margin-left: auto; text-align: left; }
 
@@ -115,9 +114,11 @@
   .donghua-grid, .watch-donghua-grid { grid-template-columns: 1fr; }
   .activity-signal-grid { grid-template-columns: 1fr; }
   .activity-signal-grid article { min-height: auto; gap: 24px; }
-  .donghua-card, .watch-donghua-card { min-height: 330px; }
-  .donghua-card-top { flex-direction: column; min-height: 62px; }
-  .donghua-card-top small, .watch-donghua-card small { max-width: 100%; text-align: left; }
+  .donghua-card, .watch-donghua-card, .donghua-card--featured { min-height: 330px; padding: 22px; }
+  .coverage-title-row { display: block; padding-top: 24px; }
+  .donghua-card--featured h3 { font-size: clamp(35px, 10vw, 48px); }
+  .senpai-pick-badge { display: inline-flex; margin-top: 14px; }
+  .donghua-card--featured p { font-size: 17px; }
   .work-audience-section { padding-bottom: 62px; }
   .work-audience-heading { grid-template-columns: 1fr; gap: 16px; align-items: start; }
   .work-audience-heading .eyebrow, .work-audience-heading h2, .work-audience-heading > p:not(.eyebrow), .work-audience-heading .audience-meta { grid-column: 1; margin-bottom: 0; }

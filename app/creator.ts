@@ -22,14 +22,14 @@ export const creatorProfile = {
 
 export const currentCreatorSignal = {
   label: "Current lane",
-  value: "Summer 2026 anime, mystery donghua, revenge arcs, and character psychology.",
+  value: "Romance, cyberpunk, manhwa power plays, fantasy adventure, and comfort-watch worldbuilding.",
 };
 
 export const creatorStatusItems: CreatorStatusItem[] = [
   {
     label: "What I am watching",
     value:
-      "Summer 2026 anime and donghua, with The Chosen One, Secrets of the Rivers, and Crowned in a Hundred Days leading the board.",
+      "Heroine? Saint?, The Exiled Heavy Knight, THE GHOST IN THE SHELL, Tomb Raider King, and The Cat and the Dragon are on the board.",
     href: "/#summer-coverage",
     cta: "See the watch board",
     featured: true,
