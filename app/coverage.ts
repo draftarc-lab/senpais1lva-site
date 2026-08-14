@@ -17,7 +17,6 @@ export type CoverageEntry = {
   pickLabel?: string;
   currentEpisode?: number;
   totalEpisodes?: number;
-  lastUpdated: string;
   coverageUrl: string;
   streaming?: CoverageLink;
   image?: string;
@@ -45,7 +44,6 @@ export type FeaturedVideo = {
 };
 
 export const coverageSeason = "What’s Got My Attention";
-export const coverageLastUpdated = "Last updated August 2026";
 export const coverageIntro =
   "Five shows I’m having the most fun with right now. Different genres, completely different vibes, and all worth putting on your radar.";
 
@@ -60,7 +58,6 @@ export const summerCoverage: CoverageEntry[] = [
       "The Solo Leveling comparisons are obvious, but I might actually like Jooheon more. OP is fun. OP with personality is better.",
     status: "Recommended now",
     pickLabel: "Senpai Pick",
-    lastUpdated: "August 2026",
     coverageUrl: "/watch#tomb-raider-king",
     streaming: {
       label: "Watch on Crunchyroll",
@@ -79,7 +76,6 @@ export const summerCoverage: CoverageEntry[] = [
     description:
       "Melody might be destined to save the world, but she’d honestly rather perfect her maid work. Funny, charming, and one of my favorite romances this season.",
     status: "Recommended now",
-    lastUpdated: "August 2026",
     coverageUrl: "/watch#heroine-saint-all-works-maid",
     streaming: {
       label: "Watch on Crunchyroll",
@@ -97,7 +93,6 @@ export const summerCoverage: CoverageEntry[] = [
     description:
       "Everybody thinks Heavy Knight is a trash class. Elma basically responds, “Nah, your build just sucks.” That alone sold me.",
     status: "Recommended now",
-    lastUpdated: "August 2026",
     coverageUrl: "/watch#exiled-heavy-knight",
     streaming: {
       label: "Watch on Crunchyroll",
@@ -115,7 +110,6 @@ export const summerCoverage: CoverageEntry[] = [
     description:
       "Cyberpunk is at its best when the technology actually raises uncomfortable questions. Ghost in the Shell still understands that.",
     status: "Recommended now",
-    lastUpdated: "August 2026",
     coverageUrl: "/watch#the-ghost-in-the-shell-2026",
     streaming: {
       label: "Watch on Prime Video",
@@ -133,7 +127,6 @@ export const summerCoverage: CoverageEntry[] = [
     description:
       "A dragon raised by magical cats should not have this much worldbuilding and heart, but somehow it absolutely does.",
     status: "Recommended now",
-    lastUpdated: "August 2026",
     coverageUrl: "/watch#the-cat-and-the-dragon",
     streaming: {
       label: "Watch on Crunchyroll",

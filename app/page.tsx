@@ -8,7 +8,7 @@ import CoverageGrid from "./components/CoverageGrid";
 import FeaturedVideoGrid from "./components/FeaturedVideoGrid";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
-import { coverageIntro, coverageLastUpdated, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
+import { coverageIntro, currentlyCoveringLine, selectedWorkVideos, summerCoverage } from "./coverage";
 import { creatorProfile, currentCreatorSignal, featuredCreatorStatusItems } from "./creator";
 import { pageMetadata } from "./seo";
 import { featuredNotes } from "./senpai-notes/data";
@@ -114,7 +114,7 @@ export default function Home() {
             <p className="eyebrow">Anime recommendations</p>
             <h2 id="summer-coverage-heading">What’s Got My Attention</h2>
           </div>
-          <p className="section-note">{coverageIntro}<br /><span>{coverageLastUpdated}</span></p>
+          <p className="section-note">{coverageIntro}</p>
         </div>
         <CoverageGrid entries={summerCoverage} />
       </section>
@@ -178,7 +178,6 @@ export default function Home() {
           </div>
           <div className="audience-meta creator-proof-meta">
             <span>{audienceSnapshot.verifiedLabel}</span>
-            <span>{audienceSnapshot.lastUpdated}</span>
           </div>
           <div className="start-links">
             <Link className="editorial-link" href="/about">Read the full About <FiArrowUpRight aria-hidden="true" /></Link>
