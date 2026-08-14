@@ -38,7 +38,6 @@ export default function CoverageGrid({ entries, variant = "home" }: CoverageGrid
                 </a>
               )}
             </div>
-            <span className="coverage-updated">Updated {entry.lastUpdated}</span>
           </article>
         ))}
       </div>

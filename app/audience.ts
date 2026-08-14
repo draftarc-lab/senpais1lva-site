@@ -24,7 +24,6 @@ export const platformAudienceMetrics: AudienceMetric[] = [
 export const audienceSnapshot = {
   headline: "Built for anime fans who want more than surface-level takes.",
   verifiedLabel: "Verified via media kit",
-  lastUpdated: "Last updated July 2026",
   total: totalAudienceMetric,
   platforms: platformAudienceMetrics,
   metrics: [totalAudienceMetric, ...platformAudienceMetrics],

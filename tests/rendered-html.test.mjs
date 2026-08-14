@@ -60,6 +60,28 @@ test("renders route-specific metadata and structured data", async () => {
   assert.match(noteHtml, /"@type":"BreadcrumbList"/);
 });
 
+test("brand spelling and current-content dates stay clean", async () => {
+  const homeResponse = await renderPath("/");
+  const watchResponse = await renderPath("/watch");
+  const workResponse = await renderPath("/work-with-me");
+  const aboutResponse = await renderPath("/about");
+  const homeHtml = await homeResponse.text();
+  const renderedHtml = [homeHtml, await watchResponse.text(), await workResponse.text(), await aboutResponse.text()].join("\n");
+  const structuredDataSource = await readFile(new URL("../app/structured-data.ts", import.meta.url), "utf8");
+  const coverageSource = await readFile(new URL("../app/coverage.ts", import.meta.url), "utf8");
+
+  assert.equal(homeResponse.status, 200);
+  assert.match(homeHtml, /SenpaiS1lva/);
+  assert.match(homeHtml, /"alternateName":"SenpaiS1lva"/);
+  assert.match(structuredDataSource, /"https:\/\/m\.youtube\.com\/@SenpaiS1lva"/);
+  assert.match(structuredDataSource, /"https:\/\/www\.tiktok\.com\/@senpais1lva"/);
+  assert.match(structuredDataSource, /"https:\/\/www\.instagram\.com\/senpais1lva"/);
+  assert.doesNotMatch(renderedHtml, /SenpaiSilva|Senpai Silva|SenpaiSIlva|SenpaiS1iva/);
+  assert.doesNotMatch(renderedHtml, /Last updated|July 2026|August 2026|Updated August|Updated July/);
+  assert.doesNotMatch(structuredDataSource, /updated July 2026|Last updated|August 2026/);
+  assert.doesNotMatch(coverageSource, /coverageLastUpdated|lastUpdated|August 2026|Last updated/);
+});
+
 test("renders verified work with me proof without visible raw email text", async () => {
   const response = await renderPath("/work-with-me");
   const html = await response.text();

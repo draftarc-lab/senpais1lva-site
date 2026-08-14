@@ -41,7 +41,7 @@ export const personJsonLd = {
     name: "Orlando, Florida",
   },
   url: siteUrl,
-  description: `SenpaiS1lva is a creator focused on anime, donghua, culture, psychology, philosophy, recommendations, and meaningful conversation. Verified audience: ${audienceSnapshot.total.value} followers, updated July 2026.`,
+  description: `SenpaiS1lva is a creator focused on anime, donghua, culture, psychology, philosophy, recommendations, and meaningful conversation. Verified audience: ${audienceSnapshot.total.value} followers.`,
   sameAs: organizationJsonLd.sameAs,
 };
 
