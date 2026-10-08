@@ -146,7 +146,7 @@ export const featuredVideos: FeaturedVideo[] = [
     title: "Latest uploads on YouTube",
     platform: "YouTube",
     url: "https://m.youtube.com/@SenpaiS1lva/videos",
-    thumbnail: "/senpais1lva-logo.jpeg",
+    thumbnail: "/senpais1lva-brand-art.jpeg",
     category: "Latest video",
     animeOrDonghuaTitle: "Current feed",
     description:
@@ -161,7 +161,7 @@ export const featuredVideos: FeaturedVideo[] = [
     title: "Anime has more to say",
     platform: "Instagram",
     url: "https://www.instagram.com/reel/DaQZXg2NcXB/?igsh=MWQ5YzF0aGNyY291eA==",
-    thumbnail: "/senpais1lva-logo.jpeg",
+    thumbnail: "/senpais1lva-brand-art.jpeg",
     category: "Anime analysis",
     animeOrDonghuaTitle: "Anime culture",
     description:
@@ -177,7 +177,7 @@ export const featuredVideos: FeaturedVideo[] = [
     title: "Reaction clips that open the conversation",
     platform: "Instagram",
     url: "https://www.instagram.com/reel/DadRSn7tibw/?igsh=MTF3MWNjZ3NmNms4cQ==",
-    thumbnail: "/about-silva.webp",
+    thumbnail: "/senpais1lva-profile.webp",
     category: "Reactions",
     animeOrDonghuaTitle: "Anime commentary",
     description:
@@ -222,7 +222,7 @@ export const featuredVideos: FeaturedVideo[] = [
     title: "Fast reactions and commentary",
     platform: "TikTok",
     url: "https://www.tiktok.com/@senpais1lva",
-    thumbnail: "/about-silva.webp",
+    thumbnail: "/senpais1lva-profile.webp",
     category: "Reactions",
     animeOrDonghuaTitle: "Current anime moments",
     description:

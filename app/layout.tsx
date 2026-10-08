@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     images: [{ url: defaultOgImage, width: 1200, height: 630, alt: defaultOgImageAlt }],
   },
   twitter: { card: "summary_large_image", title: "SenpaiS1lva | Anime has more to say", description: "Anime, donghua, culture, recommendations, and the ideas beneath the animation.", images: [{ url: defaultOgImage, alt: defaultOgImageAlt }] },
-  icons: { icon: "/favicon.ico", shortcut: "/favicon.ico", apple: "/nav-logo.webp" },
+  icons: { icon: "/favicon.ico", shortcut: "/favicon.ico", apple: "/senpais1lva-avatar.webp" },
 };
 
 export const viewport: Viewport = {

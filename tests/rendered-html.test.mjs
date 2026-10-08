@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import test from "node:test";
 
 async function renderPath(pathname) {
@@ -60,14 +60,14 @@ test("renders route-specific metadata and structured data", async () => {
   assert.match(homeHtml, /<meta property="og:title" content="Anime has more to say \| SenpaiS1lva"\/>/);
   assert.match(homeHtml, /<meta property="og:description" content="SenpaiS1lva is a premium creator hub for anime, donghua, recommendations, reactions, culture, psychology, philosophy, and meaningful conversation\."\/>/);
   assert.match(homeHtml, /<meta property="og:url" content="https:\/\/senpais1lva\.com\/"\/>/);
-  assert.match(homeHtml, /<meta property="og:image" content="https:\/\/senpais1lva\.com\/og-image\.jpg"\/>/);
+  assert.match(homeHtml, /<meta property="og:image" content="https:\/\/senpais1lva\.com\/senpais1lva-social-card\.jpg"\/>/);
   assert.match(homeHtml, /<meta property="og:image:width" content="1200"\/>/);
   assert.match(homeHtml, /<meta property="og:image:height" content="630"\/>/);
-  assert.match(homeHtml, /<meta property="og:image:alt" content="SenpaiS1lva creator artwork with readable brand logo over a rainy futuristic city"\/>/);
+  assert.match(homeHtml, /<meta property="og:image:alt" content="SenpaiS1lva anime creator artwork with the Anime has more to say tagline"\/>/);
   assert.match(homeHtml, /<meta name="twitter:card" content="summary_large_image"\/>/);
   assert.match(homeHtml, /<meta name="twitter:title" content="Anime has more to say \| SenpaiS1lva"\/>/);
-  assert.match(homeHtml, /<meta name="twitter:image" content="https:\/\/senpais1lva\.com\/og-image\.jpg"\/>/);
-  assert.match(homeHtml, /<meta name="twitter:image:alt" content="SenpaiS1lva creator artwork with readable brand logo over a rainy futuristic city"\/>/);
+  assert.match(homeHtml, /<meta name="twitter:image" content="https:\/\/senpais1lva\.com\/senpais1lva-social-card\.jpg"\/>/);
+  assert.match(homeHtml, /<meta name="twitter:image:alt" content="SenpaiS1lva anime creator artwork with the Anime has more to say tagline"\/>/);
   assert.match(homeHtml, /<meta name="theme-color" content="#050505"\/>/);
   assert.match(homeHtml, /<meta name="application-name" content="SenpaiS1lva"\/>/);
   assert.match(watchHtml, /<title>Watch \| SenpaiS1lva<\/title>/);
@@ -211,6 +211,40 @@ test("homepage hero logo hierarchy stays restrained and scoped", async () => {
   assert.match(globalCss, /\.nav-logo \{/);
 });
 
+test("paid SenpaiS1lva artwork is the only active creator brand imagery", async () => {
+  const response = await renderPath("/");
+  const html = await response.text();
+  const sourceFiles = [
+    "../app/page.tsx",
+    "../app/layout.tsx",
+    "../app/globals.css",
+    "../app/coverage.ts",
+    "../app/recommendations/data.ts",
+    "../app/structured-data.ts",
+    "../app/seo.ts",
+  ];
+  const source = (await Promise.all(sourceFiles.map((path) => readFile(new URL(path, import.meta.url), "utf8")))).join("\n");
+  const requiredAssets = [
+    "../public/senpais1lva-brand-art.jpeg",
+    "../public/senpais1lva-avatar.webp",
+    "../public/senpais1lva-profile.webp",
+    "../public/senpais1lva-social-card.jpg",
+    "../public/favicon.ico",
+  ];
+
+  assert.equal(response.status, 200);
+  assert.match(html, /src="\/senpais1lva-brand-art\.jpeg"/);
+  assert.match(html, /src="\/senpais1lva-profile\.webp"/);
+  assert.match(source, /senpais1lva-avatar\.webp/);
+  assert.match(source, /senpais1lva-social-card\.jpg/);
+  assert.doesNotMatch(source, /about-silva\.webp|nav-logo\.webp|og-image\.jpg|senpais1lva-logo\.jpeg/);
+
+  for (const asset of requiredAssets) {
+    const file = await stat(new URL(asset, import.meta.url));
+    assert.ok(file.size > 10_000, `${asset} should contain a production brand asset`);
+  }
+});
+
 test("homepage hero copy and secondary cta stay warm and accessible", async () => {
   const response = await renderPath("/");
   const html = await response.text();
@@ -292,7 +326,7 @@ test("homepage hierarchy keeps recommendations early and consolidates creator pr
   assert.match(html, /Combined audience[\s\S]*16\.5K[\s\S]*Facebook[\s\S]*Instagram[\s\S]*TikTok[\s\S]*YouTube/);
   assert.doesNotMatch(pageSource, /creator-trust-strip/);
   assert.doesNotMatch(pageSource, /className="audience-section/);
-  assert.match(pageSource, /alt="SenpaiS1lva smiling at a restaurant"/);
+  assert.match(pageSource, /alt="SenpaiS1lva anime creator artwork"/);
   assert.match(css, /\.creator-proof \{[\s\S]*grid-template-columns: minmax\(150px, \.62fr\) minmax\(0, 1\.38fr\)/);
   assert.match(css, /@media \(max-width: 800px\)[\s\S]*\.creator-proof \{ grid-template-columns: 1fr; \}/);
 });

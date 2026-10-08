@@ -1,7 +1,7 @@
 import { audienceSnapshot } from "./audience";
 import { siteUrl, socialProfileUrls } from "./seo";
 
-const profileImageUrl = `${siteUrl}/about-silva.webp`;
+const profileImageUrl = `${siteUrl}/senpais1lva-profile.webp`;
 const officialSocialProfiles = [
   socialProfileUrls.youtube,
   socialProfileUrls.tiktok,
