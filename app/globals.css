@@ -70,7 +70,7 @@ button:focus-visible { outline: 2px solid var(--paper); outline-offset: 4px; }
 .nav { height: 82px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
 .nav::before { content: ""; position: absolute; z-index: -1; inset: 0 50%; width: 100vw; transform: translateX(-50%); background: rgba(5,5,5,.88); }
 .wordmark { display: flex; align-items: center; gap: 13px; font-family: var(--display); font-size: 20px; font-style: italic; letter-spacing: -.035em; }
-.nav-logo { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(237,0,102,.72); background: #050505 url("/nav-logo.webp") center / cover no-repeat; box-shadow: 0 0 0 3px rgba(237,0,102,.06); }
+.nav-logo { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(237,0,102,.72); background: #050505 url("/senpais1lva-avatar.webp") center / cover no-repeat; box-shadow: 0 0 0 3px rgba(237,0,102,.06); }
 .nav-meta, .footer, .identity-caption { color: var(--ash); font-family: var(--utility); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
 .nav-meta { display: flex; align-items: center; gap: 9px; }
 .nav-links { display: flex; align-items: center; gap: 28px; margin-left: auto; margin-right: 34px; }
@@ -120,7 +120,7 @@ h1 em { color: var(--signal); font-weight: 400; }
 .start-visual { min-height: 430px; position: relative; overflow: hidden; }
 .start-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 55%, #09090b 100%), linear-gradient(0deg, rgba(5,5,5,.38), transparent 58%); }
 .start-visual img { object-fit: cover; filter: grayscale(40%) contrast(110%) brightness(62%); }
-.start-visual .about-photo { object-position: center 43%; filter: contrast(104%) brightness(76%) saturate(82%); }
+.start-visual .about-photo { object-position: center 28%; filter: contrast(104%) brightness(76%) saturate(88%); }
 .start-stamp { position: absolute; z-index: 2; left: 24px; bottom: 23px; display: flex; flex-direction: column; color: var(--paper); line-height: .78; transform: rotate(-4deg); text-shadow: 0 3px 10px #000; }
 .start-stamp span { color: var(--signal); font-size: 12px; font-weight: 700; letter-spacing: .34em; }
 .start-stamp strong { font-family: var(--display); font-size: 48px; font-style: italic; font-weight: 400; letter-spacing: -.06em; }
@@ -149,7 +149,7 @@ h1 em { color: var(--signal); font-weight: 400; }
 .feature-card:hover { transform: translateY(-3px); border-color: rgba(237,0,102,.7); }
 .feature-placeholder { min-height: 220px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(145deg, #141116, #09090b 62%); color: #4e474b; }
 .feature-placeholder::before { content: ""; position: absolute; inset: 0; opacity: .3; filter: grayscale(.35) contrast(1.1); transition: transform .35s ease, opacity .35s ease; }
-.feature-art--logo::before { background: url("/senpais1lva-logo.jpeg") center 36% / cover no-repeat; }
+.feature-art--logo::before { background: url("/senpais1lva-brand-art.jpeg") center 34% / cover no-repeat; }
 .feature-art--city::before { background: url("/cityscape.jpeg") center / cover no-repeat; }
 .feature-card:hover .feature-placeholder::before { transform: scale(1.025); opacity: .4; }
 .feature-placeholder::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,.12), rgba(5,5,5,.76)); }
@@ -229,7 +229,7 @@ h1 em { color: var(--signal); font-weight: 400; }
 .site-footer { position: relative; z-index: 2; padding-top: 68px; background: #050505; border-top: 1px solid var(--line); }
 .footer-main { display: grid; grid-template-columns: 1.6fr .75fr .75fr 1fr; gap: 55px; padding-bottom: 54px; }
 .footer-brand { display: flex; align-items: flex-start; gap: 16px; }
-.footer-logo { flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%; background: url("/nav-logo.webp") center / cover; border: 1px solid rgba(237,0,102,.55); }
+.footer-logo { flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%; background: url("/senpais1lva-avatar.webp") center / cover; border: 1px solid rgba(237,0,102,.55); }
 .footer-brand strong { font-family: var(--display); font-size: 26px; font-style: italic; font-weight: 400; }
 .footer-brand p { max-width: 270px; margin: 7px 0 0; color: #8f878a; font-family: "Iowan Old Style", Georgia, serif; font-size: 13px; }
 .footer-column { display: flex; flex-direction: column; gap: 10px; }
@@ -249,13 +249,13 @@ h1 em { color: var(--signal); font-weight: 400; }
 .inner-hero-content h1 em { color: var(--signal); }
 .inner-hero-content > p:not(.eyebrow) { max-width: 650px; margin: 29px 0 0; color: #c1b9bb; font-family: "Iowan Old Style", Georgia, serif; font-size: 18px; line-height: 1.7; }
 .inner-hero-action { margin-top: 32px; }
-.watch-page .inner-hero { background-image: linear-gradient(90deg, rgba(5,5,5,.97), rgba(5,5,5,.72)), url("/senpais1lva-logo.jpeg"); background-position: center, 83% 40%; background-size: auto, 590px; background-repeat: no-repeat; }
+.watch-page .inner-hero { background-image: linear-gradient(90deg, rgba(5,5,5,.97), rgba(5,5,5,.72)), url("/senpais1lva-brand-art.jpeg"); background-position: center, 83% 34%; background-size: auto, 690px; background-repeat: no-repeat; }
 .watch-page .inner-hero::before { background: linear-gradient(90deg, rgba(5,5,5,.86), rgba(5,5,5,.42) 63%, rgba(5,5,5,.74)); }
 .recommendations-page .inner-hero { background: #0a0909; }
 .recommendations-page .inner-hero::before { opacity: .55; background: repeating-linear-gradient(90deg, transparent 0 109px, rgba(238,233,226,.045) 110px), linear-gradient(135deg, rgba(237,0,102,.12), transparent 48%); }
 .notes-page .inner-hero, .article-page { background-color: #0d0a0c; }
 .notes-page .inner-hero { background-image: linear-gradient(100deg, rgba(13,10,12,.96), rgba(13,10,12,.72)), url("/cityscape.jpeg"); background-position: center; }
-.about-page .inner-hero { background-image: linear-gradient(90deg, rgba(5,5,5,.97), rgba(5,5,5,.58) 63%, rgba(5,5,5,.22)), url("/about-silva.webp"); background-position: center, 88% 43%; background-size: auto, cover; }
+.about-page .inner-hero { background-image: linear-gradient(90deg, rgba(5,5,5,.97), rgba(5,5,5,.58) 63%, rgba(5,5,5,.22)), url("/senpais1lva-profile.webp"); background-position: center, 88% 28%; background-size: auto, cover; }
 .about-page .inner-hero::before { background: linear-gradient(90deg, rgba(5,5,5,.84), rgba(5,5,5,.26) 70%, rgba(5,5,5,.44)); }
 .work-page .inner-hero { background: #080808; }
 .work-page .inner-hero::before { background: linear-gradient(112deg, rgba(237,0,102,.12), transparent 42%), repeating-linear-gradient(90deg, transparent 0 139px, rgba(238,233,226,.045) 140px); }
@@ -281,7 +281,7 @@ h1 em { color: var(--signal); font-weight: 400; }
 .watch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 30px; }
 .watch-card { min-height: 380px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; padding: 26px; border: 1px solid var(--line); background: #0b0b0d; }
 .watch-card::before { content: ""; position: absolute; inset: 0; opacity: .29; transition: transform .35s, opacity .35s; }
-.watch-art--logo::before { background: url("/senpais1lva-logo.jpeg") center 38% / cover; }
+.watch-art--logo::before { background: url("/senpais1lva-brand-art.jpeg") center 34% / cover; }
 .watch-art--city::before { background: url("/cityscape.jpeg") center / cover; }
 .watch-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,.18), rgba(5,5,5,.9)); }
 .watch-card:hover::before { transform: scale(1.025); opacity: .42; }
@@ -343,7 +343,7 @@ h1 em { color: var(--signal); font-weight: 400; }
 
 .about-story { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; padding: 90px 0; }
 .about-portrait { min-height: 650px; position: relative; overflow: hidden; border: 1px solid var(--line); }
-.about-portrait img { object-fit: cover; object-position: center 40%; filter: saturate(.84) contrast(1.04) brightness(.84); }
+.about-portrait img { object-fit: cover; object-position: center 24%; filter: saturate(.9) contrast(1.04) brightness(.84); }
 .about-story article h2 { font-size: 61px; line-height: .94; }
 .about-story article > p:not(.eyebrow) { color: #aaa2a5; font-family: "Iowan Old Style", Georgia, serif; font-size: 16px; line-height: 1.75; }
 .about-story blockquote { margin: 30px 0 0; padding: 25px 0 0 25px; border-top: 1px solid rgba(237,0,102,.42); border-left: 1px solid rgba(237,0,102,.42); font-family: var(--display); font-size: 28px; font-style: italic; line-height: 1.25; }

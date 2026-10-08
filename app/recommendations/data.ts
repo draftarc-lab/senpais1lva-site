@@ -63,7 +63,7 @@ const foundationalRecommendations: Recommendation[] = [
     whySilvaRecommends:
       "It starts like a colorful journey and slowly becomes one of anime's cleanest arguments for how rules, desire, and morality shape power.",
     bestFitViewer: "Viewers who want friendship, exploration, and a power system that rewards paying attention.",
-    image: "/senpais1lva-logo.jpeg",
+    image: "/senpais1lva-brand-art.jpeg",
     groups: ["Start Here", "Adventure and Fantasy", "Character-Driven"],
     featured: true,
     relatedNoteSlug: "the-fantasy-of-doing-everything-alone",
@@ -156,7 +156,7 @@ const foundationalRecommendations: Recommendation[] = [
     whySilvaRecommends:
       "It is built for viewers who enjoy piecing together rituals, power structures, and a world that feels bigger than the episode in front of you.",
     bestFitViewer: "Worldbuilding people. Lore board people. The 'wait, let me pause that' crowd.",
-    image: "/senpais1lva-logo.jpeg",
+    image: "/senpais1lva-brand-art.jpeg",
     groups: ["Donghua Gateway", "Adventure and Fantasy"],
   },
 ];

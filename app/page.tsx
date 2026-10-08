@@ -90,7 +90,7 @@ export default function Home() {
         </div>
         <div className="identity-stage">
           <div className="logo-halo" aria-hidden="true" />
-          <Image className="hero-logo" src="/senpais1lva-logo.jpeg" alt="SenpaiS1lva illustrated creator logo" width={1280} height={1280} priority unoptimized />
+          <Image className="hero-logo" src="/senpais1lva-brand-art.jpeg" alt="Paid SenpaiS1lva anime creator artwork" width={1670} height={1443} priority unoptimized />
           <div className="identity-caption"><span>ANIME CREATOR</span><span>ORLANDO, FL</span></div>
         </div>
         <nav className="command-strip" aria-label="Creator command center">
@@ -141,7 +141,7 @@ export default function Home() {
 
       <section id="about" className="start-section container reveal-section">
         <div className="start-visual">
-          <Image className="about-photo" src="/about-silva.webp" alt="SenpaiS1lva smiling at a restaurant" fill sizes="(max-width: 800px) 100vw, 50vw" unoptimized />
+          <Image className="about-photo" src="/senpais1lva-profile.webp" alt="SenpaiS1lva anime creator artwork" fill sizes="(max-width: 800px) 100vw, 50vw" unoptimized />
           <div className="start-stamp"><span>MEET</span><strong>SILVA</strong></div>
         </div>
         <div className="start-copy">

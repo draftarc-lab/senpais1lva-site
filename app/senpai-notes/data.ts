@@ -39,7 +39,7 @@ const noteDrafts = [
     relatedRecommendationSlug: "hunter-x-hunter",
     relatedVideoSlug: "anime-has-more-to-say",
     relatedNoteSlugs: ["tournament-arcs-and-ritual"],
-    socialImage: "/og-image.jpg",
+    socialImage: "/senpais1lva-social-card.jpg",
     featured: true,
     question: "Perfect setting or overused crutch?",
     paragraphs: [
@@ -64,7 +64,7 @@ const noteDrafts = [
     relatedRecommendationSlug: "hunter-x-hunter",
     relatedVideoSlug: "anime-has-more-to-say",
     relatedNoteSlugs: ["why-anime-loves-school", "the-fantasy-of-doing-everything-alone"],
-    socialImage: "/og-image.jpg",
+    socialImage: "/senpais1lva-social-card.jpg",
     featured: true,
     question: "Why do fictional crowds make us feel included?",
     paragraphs: [
@@ -89,7 +89,7 @@ const noteDrafts = [
     relatedRecommendationSlug: "hunter-x-hunter",
     relatedVideoSlug: "reaction-clips-that-open-conversation",
     relatedNoteSlugs: ["tournament-arcs-and-ritual"],
-    socialImage: "/og-image.jpg",
+    socialImage: "/senpais1lva-social-card.jpg",
     featured: true,
     question: "When does independence become avoidance?",
     paragraphs: [

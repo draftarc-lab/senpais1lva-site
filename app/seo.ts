@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://senpais1lva.com";
-export const defaultOgImage = "/og-image.jpg";
-export const defaultOgImageAlt = "SenpaiS1lva creator artwork with readable brand logo over a rainy futuristic city";
+export const defaultOgImage = "/senpais1lva-social-card.jpg";
+export const defaultOgImageAlt = "SenpaiS1lva anime creator artwork with the Anime has more to say tagline";
 
 export const socialProfileUrls = {
   youtube: "https://m.youtube.com/@SenpaiS1lva",
